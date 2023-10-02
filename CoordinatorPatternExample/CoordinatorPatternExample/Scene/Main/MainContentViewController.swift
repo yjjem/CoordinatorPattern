@@ -13,6 +13,8 @@ final class MainContentViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        
+        view.backgroundColor = .systemYellow
     }
 }
 

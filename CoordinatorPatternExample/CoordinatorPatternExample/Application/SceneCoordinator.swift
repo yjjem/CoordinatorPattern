@@ -23,9 +23,15 @@ final class SceneCoordinator: Coordinator {
     // MARK: Function(s)
     
     func start() {
-        let viewController = MainContentViewController()
-        let mainFlowNavigation = UINavigationController(rootViewController: viewController)
-        window.rootViewController = mainFlowNavigation
+        window.rootViewController = showMainFlow()
         window.makeKeyAndVisible()
+    }
+    
+    func showMainFlow() -> UINavigationController {
+        let mainFlowNavigation = UINavigationController()
+        let mainFlowCoordinator = MainCoordinator(navigationController: mainFlowNavigation)
+        mainFlowCoordinator.start()
+        
+        return mainFlowNavigation
     }
 }
