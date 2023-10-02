@@ -15,6 +15,7 @@
 		DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BECF2AC94BF400833DE5 /* Coordinator.swift */; };
 		DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */; };
 		DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */; };
+		DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DF62BECF2AC94BF400833DE5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		DF62BED22AC94D7200833DE5 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				DF62BED82ACAEB8900833DE5 /* Common */,
 				DF62BED52ACADE0D00833DE5 /* Main */,
 			);
 			path = Scene;
@@ -111,6 +114,14 @@
 				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DF62BED82ACAEB8900833DE5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */,
+				DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */,
 				DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */,
 				DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,

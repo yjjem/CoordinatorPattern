@@ -26,6 +26,7 @@ final class MainCoordinator: Coordinator {
     
     func start() {
         let mainContentViewController = MainContentViewController()
+        mainContentViewController.configureName(with: "Main")
         navigationController.pushViewController(mainContentViewController, animated: true)
     }
 }

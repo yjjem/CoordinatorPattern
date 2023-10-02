@@ -7,14 +7,13 @@
 
 import UIKit
 
-final class MainContentViewController: UIViewController {
+final class MainContentViewController: NamedViewController {
     
     // MARK: Override(s)
     
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .systemYellow
     }
 }
 
