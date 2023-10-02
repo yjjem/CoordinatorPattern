@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBC2AC949C800833DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBB2AC949C800833DE5 /* SceneDelegate.swift */; };
-		DF62BEBE2AC949C800833DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* ViewController.swift */; };
+		DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */; };
 		DF62BEC32AC949C900833DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF62BEC22AC949C900833DE5 /* Assets.xcassets */; };
 		DF62BEC62AC949C900833DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF62BEC42AC949C900833DE5 /* LaunchScreen.storyboard */; };
 		DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BECF2AC94BF400833DE5 /* Coordinator.swift */; };
+		DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPatternExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF62BEB92AC949C800833DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF62BEBB2AC949C800833DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DF62BEBD2AC949C800833DE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		DF62BEC22AC949C900833DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF62BEC52AC949C900833DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF62BEC72AC949C900833DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF62BECF2AC94BF400833DE5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				DF62BEB92AC949C800833DE5 /* AppDelegate.swift */,
 				DF62BEBB2AC949C800833DE5 /* SceneDelegate.swift */,
+				DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -94,7 +97,7 @@
 		DF62BED22AC94D7200833DE5 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				DF62BEBD2AC949C800833DE5 /* ViewController.swift */,
+				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -170,7 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */,
-				DF62BEBE2AC949C800833DE5 /* ViewController.swift in Sources */,
+				DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */,
+				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 				DF62BEBC2AC949C800833DE5 /* SceneDelegate.swift in Sources */,
 			);

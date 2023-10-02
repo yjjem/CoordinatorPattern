@@ -9,22 +9,23 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
+    // MARK: Property(s)
+    
     var window: UIWindow?
+    
+    // MARK: Function(s)
     
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        
         guard let windowScene = scene as? UIWindowScene else { return }
         
-        let rootViewController = ViewController()
-        
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = rootViewController
-        window.makeKeyAndVisible()
-        
         self.window = window
+
+        let sceneCoordinator = SceneCoordinator(window: window)
+        sceneCoordinator.start()
     }
 }

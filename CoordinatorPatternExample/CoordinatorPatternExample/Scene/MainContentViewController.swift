@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MainContentViewController: UIViewController {
+    
+    // MARK: Override(s)
     
     override func loadView() {
         super.loadView()

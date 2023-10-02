@@ -10,6 +10,8 @@ import UIKit
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    // MARK: Function(s)
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
