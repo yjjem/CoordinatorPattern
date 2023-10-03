@@ -18,6 +18,7 @@
 		DF62BEDD2ACAEF6400833DE5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */; };
 		DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */; };
 		DFBEB0132ACBFE1100547369 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0122ACBFE1100547369 /* SceneDelegate.swift */; };
+		DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		DFBEB0122ACBFE1100547369 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
+		DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */,
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
+				DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */,
 				DF62BEDD2ACAEF6400833DE5 /* AuthenticationViewController.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
+				DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */,
 				DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 			);

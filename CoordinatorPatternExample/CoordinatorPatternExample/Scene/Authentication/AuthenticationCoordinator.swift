@@ -43,7 +43,21 @@ final class AuthenticationCoordinator: Coordinator {
     
     func start() {
         let authenticationViewController = AuthenticationViewController()
+        authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
         navigationController.viewControllers = [authenticationViewController]
+    }
+}
+
+extension AuthenticationCoordinator: AuthenticationDelegate {
+    
+    func startAuthentication(_ authenticationType: AuthenticationType) {
+        startSelectedAuthentication(authenticationType)
+    }
+    
+    func startSelectedAuthentication(_ authenticationType: AuthenticationType) {
+        let authenticationDetail = AuthenticationDetailViewController()
+        authenticationDetail.configureWith(authenticationType)
+        navigationController.pushViewController(authenticationDetail, animated: true)
     }
 }

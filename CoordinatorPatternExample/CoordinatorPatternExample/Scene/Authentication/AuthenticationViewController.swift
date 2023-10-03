@@ -25,25 +25,27 @@ final class AuthenticationViewController: NamedViewController {
     }()
     
     private let greenAuthenticationButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Naver", for: .normal)
         button.backgroundColor = .systemGreen
         return button
     }()
     
     private let yellowAuthenticationButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Kakao", for: .normal)
         button.backgroundColor = .systemYellow
         return button
     }()
     
-    private let whiteAuthenticationButton: UIButton = {
-        let button = UIButton()
+    private let grayAuthenticationButton: UIButton = {
+        let button = UIButton(type: .system)
         button.setTitle("Google", for: .normal)
         button.backgroundColor = .secondaryLabel
         return button
     }()
+    
+    var delegate: AuthenticationDelegate?
     
     // MARK: Override(s)
     
@@ -52,15 +54,47 @@ final class AuthenticationViewController: NamedViewController {
         
         configureHierarchy()
         configureViewStyle()
+        configureButtonActions()
+    }
+    
+    // MARK: Runtime Function(s)
+    
+    @objc private func didTapGreenAuthenticationButton() {
+        delegate?.startAuthentication(.naver)
+    }
+    
+    @objc private func didTapYellowAuthenticationButton() {
+        delegate?.startAuthentication(.kakao)
+    }
+    
+    @objc private func didTapGrayAuthenticationButton() {
+        delegate?.startAuthentication(.google)
     }
     
     // MARK: Private Function(s)
+    
+    private func configureButtonActions() {
+        greenAuthenticationButton.addTarget(
+            self, action: #selector(didTapGreenAuthenticationButton),
+            for: .touchUpInside
+        )
+        
+        yellowAuthenticationButton.addTarget(
+            self, action: #selector(didTapYellowAuthenticationButton),
+            for: .touchUpInside
+        )
+        
+        grayAuthenticationButton.addTarget(
+            self, action: #selector(didTapGrayAuthenticationButton),
+            for: .touchUpInside
+        )
+    }
     
     private func configureViewStyle() {
         let buttons: [UIButton] = [
             greenAuthenticationButton,
             yellowAuthenticationButton, 
-            whiteAuthenticationButton
+            grayAuthenticationButton
         ]
         
         buttons.forEach {
@@ -69,6 +103,7 @@ final class AuthenticationViewController: NamedViewController {
             $0.layer.borderWidth = 0.3
             $0.layer.borderColor = UIColor.black.cgColor
             $0.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+            $0.tintColor = .white
         }
     }
     
@@ -76,7 +111,7 @@ final class AuthenticationViewController: NamedViewController {
         
         authenticationButtonsStack.addArrangedSubview(greenAuthenticationButton)
         authenticationButtonsStack.addArrangedSubview(yellowAuthenticationButton)
-        authenticationButtonsStack.addArrangedSubview(whiteAuthenticationButton)
+        authenticationButtonsStack.addArrangedSubview(grayAuthenticationButton)
         
         authenticationButtonsStack.translatesAutoresizingMaskIntoConstraints = false
         
