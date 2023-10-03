@@ -25,11 +25,17 @@ enum AuthenticationType: String {
     }
 }
 
+protocol AuthenticationCoordinatorFinishDelegate {
+    
+    func finish()
+}
+
 final class AuthenticationCoordinator: Coordinator {
     
     // MARK: Property(s)
     
     var childCoordinators: [Coordinator] = []
+    var delegate: AuthenticationCoordinatorFinishDelegate?
     
     let navigationController: UINavigationController
     
@@ -57,7 +63,15 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
     
     func startSelectedAuthentication(_ authenticationType: AuthenticationType) {
         let authenticationDetail = AuthenticationDetailViewController()
+        authenticationDetail.delegate = self
         authenticationDetail.configureWith(authenticationType)
         navigationController.pushViewController(authenticationDetail, animated: true)
+    }
+}
+
+extension AuthenticationCoordinator: AuthenticationFinishDelegate {
+    
+    func didFinishAuthentication(_ authenticationType: AuthenticationType) {
+        delegate?.finish()
     }
 }

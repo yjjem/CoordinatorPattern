@@ -89,9 +89,9 @@
 		DF62BECE2AC94A9800833DE5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */,
 				DF62BEB92AC949C800833DE5 /* AppDelegate.swift */,
 				DFBEB0122ACBFE1100547369 /* SceneDelegate.swift */,
-				DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -134,8 +134,8 @@
 		DF62BEDB2ACAEF5600833DE5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */,
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
+				DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */,
 				DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */,
 			);
 			path = Authentication;

@@ -41,7 +41,7 @@ final class AuthenticationViewController: NamedViewController {
     private let grayAuthenticationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Google", for: .normal)
-        button.backgroundColor = .secondaryLabel
+        button.backgroundColor = .systemGray
         return button
     }()
     

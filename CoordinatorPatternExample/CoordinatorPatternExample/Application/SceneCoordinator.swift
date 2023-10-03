@@ -46,7 +46,15 @@ final class SceneCoordinator: Coordinator {
         let authenticationFlowCoordinator = AuthenticationCoordinator(
             navigationController: navigation
         )
-        
+        authenticationFlowCoordinator.delegate = self
         authenticationFlowCoordinator.start()
+    }
+}
+
+extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
+    
+    func finish() {
+        navigationController.viewControllers = []
+        showMainFlow(on: navigationController)
     }
 }

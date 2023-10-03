@@ -15,6 +15,7 @@ class NamedViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
+        label.textColor = .black
         return label
     }()
     
