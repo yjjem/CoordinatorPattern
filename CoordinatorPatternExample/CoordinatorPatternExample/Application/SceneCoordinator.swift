@@ -12,26 +12,41 @@ final class SceneCoordinator: Coordinator {
     // MARK: Property(s)
     
     var childCoordinators: [Coordinator] = []
-    let window: UIWindow
+    private let window: UIWindow
+    private let navigationController: UINavigationController
+    
+    private var isLoggedIn: Bool = false
     
     //MARK: Initializer(s)
     
-    init(window: UIWindow) {
+    init(window: UIWindow, navigationController: UINavigationController = .init() ) {
         self.window = window
+        self.navigationController = navigationController
     }
     
     // MARK: Function(s)
     
     func start() {
-        window.rootViewController = showMainFlow()
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
+        
+        if isLoggedIn {
+            showMainFlow(on: navigationController)
+        } else {
+            showAuthenticationFlow(on: navigationController)
+        }
     }
     
-    func showMainFlow() -> UINavigationController {
-        let mainFlowNavigation = UINavigationController()
-        let mainFlowCoordinator = MainCoordinator(navigationController: mainFlowNavigation)
+    func showMainFlow(on navigation: UINavigationController) {
+        let mainFlowCoordinator = MainCoordinator(navigationController: navigation)
         mainFlowCoordinator.start()
+    }
+    
+    func showAuthenticationFlow(on navigation: UINavigationController) {
+        let authenticationFlowCoordinator = AuthenticationCoordinator(
+            navigationController: navigation
+        )
         
-        return mainFlowNavigation
+        authenticationFlowCoordinator.start()
     }
 }

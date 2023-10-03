@@ -3,18 +3,22 @@
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
-    
+
 
 import UIKit
 
 class NamedViewController: UIViewController {
     
-    private let nameLabel: UILabel = {
+    // MARK: Property(s)
+    
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
         return label
     }()
+    
+    // MARK: Override(s)
     
     override func loadView() {
         super.loadView()
@@ -22,9 +26,13 @@ class NamedViewController: UIViewController {
         addViewHierarchy()
     }
     
+    // MARK: Function(s)
+    
     func configureName(with name: String) {
         nameLabel.text = name
     }
+    
+    // MARK: Private Function(s)
     
     private func addViewHierarchy() {
         view.backgroundColor = .white
