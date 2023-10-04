@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MainContentSelectionDelegate {
+    func didSelectItem(with index: Int)
+}
+
 final class MainContentViewController: NamedViewController {
     
     // MARK: Property(s)
@@ -17,6 +21,8 @@ final class MainContentViewController: NamedViewController {
         )
         return collectionView
     }()
+    
+    var delegate: MainContentSelectionDelegate?
     
     // MARK: Override(s)
     
@@ -30,6 +36,7 @@ final class MainContentViewController: NamedViewController {
     private func configureCollectionView() {
         
         imageContentCollectionView.dataSource = self
+        imageContentCollectionView.delegate = self
         
         imageContentCollectionView.setCollectionViewLayout(
             makeCollectionViewLayout(),
@@ -115,5 +122,14 @@ extension MainContentViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         return 50
+    }
+}
+
+// MARK: UICollectionViewDelegate
+
+extension MainContentViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItem(with: indexPath.item)
     }
 }

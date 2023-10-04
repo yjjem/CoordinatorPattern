@@ -20,6 +20,7 @@
 		DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */; };
 		DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0162ACC111C00547369 /* MainContentCell.swift */; };
 		DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC053832ACC4C0F00DF317E /* SceneDelegate.swift */; };
+		DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0538E2ACD8E3B00DF317E /* MainContentDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailViewController.swift; sourceTree = "<group>"; };
 		DFBEB0162ACC111C00547369 /* MainContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentCell.swift; sourceTree = "<group>"; };
 		DFC053832ACC4C0F00DF317E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DFC0538E2ACD8E3B00DF317E /* MainContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +121,9 @@
 		DF62BED52ACADE0D00833DE5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DFC0538C2ACD8E2200DF317E /* List */,
+				DFC0538D2ACD8E2A00DF317E /* Detail */,
 				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
-				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
-				DFBEB0162ACC111C00547369 /* MainContentCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -142,6 +144,23 @@
 				DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DFC0538C2ACD8E2200DF317E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
+				DFBEB0162ACC111C00547369 /* MainContentCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		DFC0538D2ACD8E2A00DF317E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DFC0538E2ACD8E3B00DF317E /* MainContentDetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +241,7 @@
 				DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
 				DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */,
+				DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */,
 				DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */,
 				DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,

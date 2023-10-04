@@ -27,8 +27,19 @@ final class MainCoordinator: Coordinator {
     func start() {
         let mainContentViewController = MainContentViewController()
         mainContentViewController.title = "Main"
+        mainContentViewController.delegate = self
         
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.setViewControllers([mainContentViewController], animated: true)
+    }
+}
+
+extension MainCoordinator: MainContentSelectionDelegate {
+    
+    func didSelectItem(with index: Int) {
+        let detailViewController = MainContentDetailViewController()
+        detailViewController.configureName(with: String(index))
+        
+        navigationController.pushViewController(detailViewController, animated: true)
     }
 }
