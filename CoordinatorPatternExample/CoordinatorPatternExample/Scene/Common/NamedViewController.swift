@@ -11,13 +11,16 @@ class NamedViewController: UIViewController {
     
     // MARK: Property(s)
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
-        label.textColor = .black
         return label
     }()
+    
+    var nameLabelBottomAnchor: NSLayoutYAxisAnchor {
+        return nameLabel.bottomAnchor
+    }
     
     // MARK: Override(s)
     
@@ -36,7 +39,7 @@ class NamedViewController: UIViewController {
     // MARK: Private Function(s)
     
     private func addViewHierarchy() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(nameLabel)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false

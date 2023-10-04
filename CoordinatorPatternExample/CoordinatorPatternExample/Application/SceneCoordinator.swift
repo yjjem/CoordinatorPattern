@@ -54,7 +54,8 @@ final class SceneCoordinator: Coordinator {
 extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
     
     func finish() {
-        navigationController.viewControllers = []
+//        navigationController.viewControllers = []
+//        navigationController.pop
         showMainFlow(on: navigationController)
     }
 }

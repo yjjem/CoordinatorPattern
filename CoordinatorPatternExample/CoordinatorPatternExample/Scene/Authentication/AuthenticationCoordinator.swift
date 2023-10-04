@@ -16,7 +16,7 @@ enum AuthenticationType: String {
         return rawValue.uppercased()
     }
     
-    var representiveColor: UIColor {
+    var color: UIColor {
         switch self {
         case .naver: return .systemGreen
         case .kakao: return .systemYellow

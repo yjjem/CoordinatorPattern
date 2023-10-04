@@ -3,7 +3,7 @@
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
-    
+
 
 import UIKit
 
@@ -91,9 +91,12 @@ final class AuthenticationViewController: NamedViewController {
     }
     
     private func configureViewStyle() {
+        
+        view.backgroundColor = .systemBackground
+        
         let buttons: [UIButton] = [
             greenAuthenticationButton,
-            yellowAuthenticationButton, 
+            yellowAuthenticationButton,
             grayAuthenticationButton
         ]
         
@@ -112,7 +115,6 @@ final class AuthenticationViewController: NamedViewController {
         authenticationButtonsStack.addArrangedSubview(greenAuthenticationButton)
         authenticationButtonsStack.addArrangedSubview(yellowAuthenticationButton)
         authenticationButtonsStack.addArrangedSubview(grayAuthenticationButton)
-        
         authenticationButtonsStack.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(authenticationButtonsStack)
@@ -121,7 +123,7 @@ final class AuthenticationViewController: NamedViewController {
             authenticationButtonsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             authenticationButtonsStack.widthAnchor.constraint(equalToConstant: 200),
             authenticationButtonsStack.topAnchor.constraint(
-                equalTo: nameLabel.bottomAnchor,
+                equalTo: nameLabelBottomAnchor,
                 constant: 50
             )
         ])

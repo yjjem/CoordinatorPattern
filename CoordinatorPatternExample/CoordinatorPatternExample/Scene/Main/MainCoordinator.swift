@@ -26,7 +26,9 @@ final class MainCoordinator: Coordinator {
     
     func start() {
         let mainContentViewController = MainContentViewController()
-        mainContentViewController.configureName(with: "Main")
-        navigationController.viewControllers = [mainContentViewController]
+        mainContentViewController.title = "Main"
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.setViewControllers([mainContentViewController], animated: true)
     }
 }
