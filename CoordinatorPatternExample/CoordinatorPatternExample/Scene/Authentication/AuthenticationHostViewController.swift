@@ -12,9 +12,11 @@ protocol AuthenticationFinishDelegate {
     func didFinishAuthentication(_ authenticationType: AuthenticationType)
 }
 
-final class AuthenticationDetailViewController: NamedViewController {
+final class AuthenticationHostViewController: NamedViewController {
     
     // MARK: Property(s)
+    
+    var delegate: AuthenticationFinishDelegate?
     
     private let finishButton: UIButton = {
         let button = UIButton(type: .system)
@@ -27,7 +29,6 @@ final class AuthenticationDetailViewController: NamedViewController {
     }()
     
     private var authenticationType: AuthenticationType?
-    var delegate: AuthenticationFinishDelegate?
     
     // MARK: Override(s)
     
@@ -46,7 +47,7 @@ final class AuthenticationDetailViewController: NamedViewController {
         
         finishButton.isEnabled = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.delegate?.didFinishAuthentication(authenticationType)
         }
     }

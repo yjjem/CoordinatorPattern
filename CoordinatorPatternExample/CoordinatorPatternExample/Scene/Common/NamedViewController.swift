@@ -11,16 +11,16 @@ class NamedViewController: UIViewController {
     
     // MARK: Property(s)
     
+    var nameLabelBottomAnchor: NSLayoutYAxisAnchor {
+        return nameLabel.bottomAnchor
+    }
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
         return label
     }()
-    
-    var nameLabelBottomAnchor: NSLayoutYAxisAnchor {
-        return nameLabel.bottomAnchor
-    }
     
     // MARK: Override(s)
     

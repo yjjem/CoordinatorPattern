@@ -15,14 +15,14 @@ final class MainContentViewController: NamedViewController {
     
     // MARK: Property(s)
     
+    var delegate: MainContentSelectionDelegate?
+    
     private let imageContentCollectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero, collectionViewLayout: .init()
         )
         return collectionView
     }()
-    
-    var delegate: MainContentSelectionDelegate?
     
     // MARK: Override(s)
     

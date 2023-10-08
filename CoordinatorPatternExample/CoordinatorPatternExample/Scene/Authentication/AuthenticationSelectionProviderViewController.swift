@@ -11,9 +11,11 @@ protocol AuthenticationDelegate {
     func startAuthentication(_ authenticationType: AuthenticationType)
 }
 
-final class AuthenticationViewController: NamedViewController {
+final class AuthenticationSelectionProviderViewController: NamedViewController {
     
     // MARK: Property(s)
+    
+    var delegate: AuthenticationDelegate?
     
     private let authenticationButtonsStack: UIStackView = {
         let stack = UIStackView()
@@ -44,8 +46,6 @@ final class AuthenticationViewController: NamedViewController {
         button.backgroundColor = .systemGray
         return button
     }()
-    
-    var delegate: AuthenticationDelegate?
     
     // MARK: Override(s)
     

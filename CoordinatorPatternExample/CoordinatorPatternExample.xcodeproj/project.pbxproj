@@ -15,9 +15,10 @@
 		DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */; };
 		DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */; };
 		DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */; };
-		DF62BEDD2ACAEF6400833DE5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */; };
+		DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */; };
+		DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */; };
 		DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */; };
-		DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */; };
+		DFBEB0152ACC022200547369 /* AuthenticationHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */; };
 		DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0162ACC111C00547369 /* MainContentCell.swift */; };
 		DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC053832ACC4C0F00DF317E /* SceneDelegate.swift */; };
 		DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC0538E2ACD8E3B00DF317E /* MainContentDetailViewController.swift */; };
@@ -34,9 +35,10 @@
 		DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedViewController.swift; sourceTree = "<group>"; };
-		DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionProviderViewController.swift; sourceTree = "<group>"; };
+		DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenticationType.swift; sourceTree = "<group>"; };
 		DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
-		DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDetailViewController.swift; sourceTree = "<group>"; };
+		DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHostViewController.swift; sourceTree = "<group>"; };
 		DFBEB0162ACC111C00547369 /* MainContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentCell.swift; sourceTree = "<group>"; };
 		DFC053832ACC4C0F00DF317E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DFC0538E2ACD8E3B00DF317E /* MainContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentDetailViewController.swift; sourceTree = "<group>"; };
@@ -139,11 +141,20 @@
 		DF62BEDB2ACAEF5600833DE5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				DF8A67152AD2CDB500FE15D6 /* New Group */,
+				DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */,
+				DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */,
+				DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */,
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
-				DF62BEDC2ACAEF6400833DE5 /* AuthenticationViewController.swift */,
-				DFBEB0142ACC022200547369 /* AuthenticationDetailViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DF8A67152AD2CDB500FE15D6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		DFC0538C2ACD8E2200DF317E /* List */ = {
@@ -233,16 +244,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */,
 				DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */,
 				DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */,
 				DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */,
 				DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */,
-				DF62BEDD2ACAEF6400833DE5 /* AuthenticationViewController.swift in Sources */,
+				DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */,
 				DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
 				DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */,
 				DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */,
-				DFBEB0152ACC022200547369 /* AuthenticationDetailViewController.swift in Sources */,
+				DFBEB0152ACC022200547369 /* AuthenticationHostViewController.swift in Sources */,
 				DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 			);

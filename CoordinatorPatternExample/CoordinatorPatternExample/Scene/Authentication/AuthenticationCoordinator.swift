@@ -7,27 +7,9 @@
 
 import UIKit
 
-enum AuthenticationType: String {
-    case naver
-    case kakao
-    case google
-    
-    var name: String {
-        return rawValue.uppercased()
-    }
-    
-    var color: UIColor {
-        switch self {
-        case .naver: return .systemGreen
-        case .kakao: return .systemYellow
-        case .google: return .systemGray
-        }
-    }
-}
-
 protocol AuthenticationCoordinatorFinishDelegate {
     
-    func finish()
+    func finishAuthenticationCoordinator()
 }
 
 final class AuthenticationCoordinator: Coordinator {
@@ -48,7 +30,7 @@ final class AuthenticationCoordinator: Coordinator {
     // MARK: Function(s)
     
     func start() {
-        let authenticationViewController = AuthenticationViewController()
+        let authenticationViewController = AuthenticationSelectionProviderViewController()
         authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
         navigationController.viewControllers = [authenticationViewController]
@@ -62,7 +44,7 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
     }
     
     func startSelectedAuthentication(_ authenticationType: AuthenticationType) {
-        let authenticationDetail = AuthenticationDetailViewController()
+        let authenticationDetail = AuthenticationHostViewController()
         authenticationDetail.delegate = self
         authenticationDetail.configureWith(authenticationType)
         navigationController.pushViewController(authenticationDetail, animated: true)
@@ -72,6 +54,6 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
 extension AuthenticationCoordinator: AuthenticationFinishDelegate {
     
     func didFinishAuthentication(_ authenticationType: AuthenticationType) {
-        delegate?.finish()
+        delegate?.finishAuthenticationCoordinator()
     }
 }

@@ -12,10 +12,11 @@ final class SceneCoordinator: Coordinator {
     // MARK: Property(s)
     
     var childCoordinators: [Coordinator] = []
-    private let window: UIWindow
-    private let navigationController: UINavigationController
     
     private var isLoggedIn: Bool = false
+    
+    private let window: UIWindow
+    private let navigationController: UINavigationController
     
     //MARK: Initializer(s)
     
@@ -39,6 +40,7 @@ final class SceneCoordinator: Coordinator {
     
     func showMainFlow(on navigation: UINavigationController) {
         let mainFlowCoordinator = MainCoordinator(navigationController: navigation)
+        mainFlowCoordinator.delegate = self
         mainFlowCoordinator.start()
     }
     
@@ -51,9 +53,18 @@ final class SceneCoordinator: Coordinator {
     }
 }
 
+// MARK: AuthenticationCoordinatorFinishDelegate
+
 extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
     
-    func finish() {
+    func finishAuthenticationCoordinator() {
         showMainFlow(on: navigationController)
+    }
+}
+
+extension SceneCoordinator: MainCoordinatorFinishDelegate {
+    
+    func finishMainCoordinator() {
+        showAuthenticationFlow(on: navigationController)
     }
 }

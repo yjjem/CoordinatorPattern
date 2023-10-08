@@ -8,11 +8,16 @@
 import UIKit
 import Foundation
 
+protocol MainCoordinatorFinishDelegate {
+    func finishMainCoordinator()
+}
+
 final class MainCoordinator: Coordinator {
     
     // MARK: Property(s)
     
     var childCoordinators: [Coordinator] = []
+    var delegate: MainCoordinatorFinishDelegate?
     
     let navigationController: UINavigationController
     
@@ -25,12 +30,23 @@ final class MainCoordinator: Coordinator {
     // MARK: Function(s)
     
     func start() {
+        let logOutButton = UIBarButtonItem(
+            title: "Log Out",
+            style: .done,
+            target: self, action: #selector(didTapLogOutButton)
+        )
+        
         let mainContentViewController = MainContentViewController()
+        mainContentViewController.navigationItem.rightBarButtonItem = logOutButton
         mainContentViewController.title = "Main"
         mainContentViewController.delegate = self
         
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.setViewControllers([mainContentViewController], animated: true)
+    }
+    
+    @objc func didTapLogOutButton() {
+        delegate?.finishMainCoordinator()
     }
 }
 
