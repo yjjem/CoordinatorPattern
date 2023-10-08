@@ -141,20 +141,28 @@
 		DF62BEDB2ACAEF5600833DE5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				DF8A67152AD2CDB500FE15D6 /* New Group */,
-				DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */,
-				DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */,
-				DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */,
+				DF8A67152AD2CDB500FE15D6 /* Selection */,
+				DF8A67162AD2D1BE00FE15D6 /* Host */,
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		DF8A67152AD2CDB500FE15D6 /* New Group */ = {
+		DF8A67152AD2CDB500FE15D6 /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */,
+				DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */,
 			);
-			path = "New Group";
+			path = Selection;
+			sourceTree = "<group>";
+		};
+		DF8A67162AD2D1BE00FE15D6 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */,
+			);
+			path = Host;
 			sourceTree = "<group>";
 		};
 		DFC0538C2ACD8E2200DF317E /* List */ = {
