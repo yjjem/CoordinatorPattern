@@ -17,6 +17,8 @@
 		DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */; };
 		DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */; };
 		DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */; };
+		DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */; };
+		DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */; };
 		DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */; };
 		DFBEB0152ACC022200547369 /* AuthenticationHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */; };
 		DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBEB0162ACC111C00547369 /* MainContentCell.swift */; };
@@ -37,6 +39,8 @@
 		DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedViewController.swift; sourceTree = "<group>"; };
 		DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionProviderViewController.swift; sourceTree = "<group>"; };
 		DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenticationType.swift; sourceTree = "<group>"; };
+		DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentStorage.swift; sourceTree = "<group>"; };
+		DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent.swift; sourceTree = "<group>"; };
 		DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHostViewController.swift; sourceTree = "<group>"; };
 		DFBEB0162ACC111C00547369 /* MainContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentCell.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 				DF62BECE2AC94A9800833DE5 /* Application */,
 				DF62BED12AC94D6600833DE5 /* Common */,
 				DF62BED22AC94D7200833DE5 /* Scene */,
+				DF8A67172AD3E71500FE15D6 /* Data */,
 				DF62BECD2AC94A8600833DE5 /* Resources */,
 			);
 			path = CoordinatorPatternExample;
@@ -163,6 +168,23 @@
 				DFBEB0142ACC022200547369 /* AuthenticationHostViewController.swift */,
 			);
 			path = Host;
+			sourceTree = "<group>";
+		};
+		DF8A67172AD3E71500FE15D6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DF8A671A2AD3EE4E00FE15D6 /* MainContentStorage */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DF8A671A2AD3EE4E00FE15D6 /* MainContentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */,
+				DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */,
+			);
+			path = MainContentStorage;
 			sourceTree = "<group>";
 		};
 		DFC0538C2ACD8E2200DF317E /* List */ = {
@@ -253,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */,
+				DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */,
 				DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */,
 				DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */,
 				DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */,
@@ -264,6 +287,7 @@
 				DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */,
 				DFBEB0152ACC022200547369 /* AuthenticationHostViewController.swift in Sources */,
 				DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */,
+				DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

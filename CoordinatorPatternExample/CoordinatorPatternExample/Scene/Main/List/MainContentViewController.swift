@@ -17,6 +17,8 @@ final class MainContentViewController: NamedViewController {
     
     var delegate: MainContentSelectionDelegate?
     
+    private let contentStorage: MainContentStorage = .init()
+    
     private let imageContentCollectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero, collectionViewLayout: .init()
@@ -31,6 +33,12 @@ final class MainContentViewController: NamedViewController {
         
         configureHierarchy()
         configureCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        contentStorage.fetchMainContentList()
     }
     
     private func configureCollectionView() {
@@ -112,7 +120,8 @@ extension MainContentViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! MainContentCell
         
-        cell.configure(with: indexPath.item)
+        let content = contentStorage.contentList[indexPath.item]
+        cell.configure(with: content.number)
         
         return cell
     }
@@ -121,7 +130,7 @@ extension MainContentViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 50
+        return contentStorage.contentList.count
     }
 }
 
