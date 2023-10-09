@@ -62,6 +62,8 @@ extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
     }
 }
 
+// MARK: MainCoordinatorFinishDelegate
+
 extension SceneCoordinator: MainCoordinatorFinishDelegate {
     
     func finishMainCoordinator() {

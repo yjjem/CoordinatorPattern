@@ -18,6 +18,8 @@ final class AuthenticationHostViewController: NamedViewController {
     
     var delegate: AuthenticationFinishDelegate?
     
+    private var authenticationType: AuthenticationType?
+    
     private let finishButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .white
@@ -27,8 +29,6 @@ final class AuthenticationHostViewController: NamedViewController {
         button.layer.masksToBounds = true
         return button
     }()
-    
-    private var authenticationType: AuthenticationType?
     
     // MARK: Override(s)
     

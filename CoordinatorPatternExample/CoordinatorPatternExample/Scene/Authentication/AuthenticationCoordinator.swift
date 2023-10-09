@@ -37,6 +37,8 @@ final class AuthenticationCoordinator: Coordinator {
     }
 }
 
+// MARK: AuthenticationDelegate
+
 extension AuthenticationCoordinator: AuthenticationDelegate {
     
     func startAuthentication(_ authenticationType: AuthenticationType) {
@@ -50,6 +52,8 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
         navigationController.pushViewController(authenticationDetail, animated: true)
     }
 }
+
+// MARK: AuthenticationFinishDelegate
 
 extension AuthenticationCoordinator: AuthenticationFinishDelegate {
     
