@@ -25,7 +25,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
-        let sceneCoordinator = SceneCoordinator(window: window)
+        let sceneCoordinator = AppCoordinator(window: window)
         sceneCoordinator.start()
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SceneCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     // MARK: Property(s)
     
@@ -55,7 +55,7 @@ final class SceneCoordinator: Coordinator {
 
 // MARK: AuthenticationCoordinatorFinishDelegate
 
-extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
+extension AppCoordinator: AuthenticationCoordinatorFinishDelegate {
     
     func finishAuthenticationCoordinator() {
         showMainFlow(on: navigationController)
@@ -64,7 +64,7 @@ extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
 
 // MARK: MainCoordinatorFinishDelegate
 
-extension SceneCoordinator: MainCoordinatorFinishDelegate {
+extension AppCoordinator: MainCoordinatorFinishDelegate {
     
     func finishMainCoordinator() {
         showAuthenticationFlow(on: navigationController)
