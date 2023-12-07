@@ -16,9 +16,10 @@ final class MainCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var childCoordinators: [Coordinator] = []
     var delegate: MainCoordinatorFinishDelegate?
+    var childCoordinators: [UUID: Coordinator] = [:]
     
+    let identifier: UUID = UUID()
     let navigationController: UINavigationController
     
     // MARK: Initializer(s)

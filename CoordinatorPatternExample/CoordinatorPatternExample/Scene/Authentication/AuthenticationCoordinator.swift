@@ -16,9 +16,10 @@ final class AuthenticationCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var childCoordinators: [Coordinator] = []
     var delegate: AuthenticationCoordinatorFinishDelegate?
+    var childCoordinators: [UUID: Coordinator] = [:]
     
+    let identifier: UUID = UUID()
     let navigationController: UINavigationController
     
     // MARK: Initializer(s)

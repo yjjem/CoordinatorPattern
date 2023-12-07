@@ -11,10 +11,10 @@ final class SceneCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [UUID: Coordinator] = [:]
+    let identifier: UUID = UUID()
     
     private var isLoggedIn: Bool = false
-    
     private let window: UIWindow
     private let navigationController: UINavigationController
     
