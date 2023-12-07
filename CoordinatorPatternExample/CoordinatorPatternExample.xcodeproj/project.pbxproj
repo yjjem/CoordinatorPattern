@@ -149,9 +149,9 @@
 		DF62BEDB2ACAEF5600833DE5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
 				DF8A67152AD2CDB500FE15D6 /* Selection */,
 				DF8A67162AD2D1BE00FE15D6 /* Host */,
-				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
