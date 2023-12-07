@@ -42,6 +42,7 @@ final class SceneCoordinator: Coordinator {
         let mainFlowCoordinator = MainCoordinator(navigationController: navigation)
         mainFlowCoordinator.delegate = self
         mainFlowCoordinator.start()
+        childCoordinators[mainFlowCoordinator.identifier] = mainFlowCoordinator
     }
     
     func showAuthenticationFlow(on navigation: UINavigationController) {
@@ -50,6 +51,7 @@ final class SceneCoordinator: Coordinator {
         )
         authenticationFlowCoordinator.delegate = self
         authenticationFlowCoordinator.start()
+        childCoordinators[authenticationFlowCoordinator.identifier] = authenticationFlowCoordinator
     }
 }
 
