@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 protocol MainCoordinatorFinishDelegate {
-    func finishMainCoordinator()
+    func finishMainCoordinator(_ identifier: UUID)
 }
 
 final class MainCoordinator: Coordinator {

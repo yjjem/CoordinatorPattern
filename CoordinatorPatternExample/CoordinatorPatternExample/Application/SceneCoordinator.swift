@@ -69,7 +69,8 @@ extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
 
 extension SceneCoordinator: MainCoordinatorFinishDelegate {
     
-    func finishMainCoordinator() {
+    func finishMainCoordinator(_ identifier: UUID) {
+        childCoordinators.removeValue(forKey: identifier)
         showAuthenticationFlow(on: navigationController)
     }
 }
