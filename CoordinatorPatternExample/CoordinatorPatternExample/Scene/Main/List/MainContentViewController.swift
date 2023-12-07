@@ -49,7 +49,7 @@ final class MainContentViewController: NamedViewController {
     
     private func configureNavigationItem() {
         let profileIcon = UIImage(systemName: "person.crop.circle.fill")
-        let filterIcon = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+        let filterIcon = UIImage(systemName: "slider.horizontal.3")
         
         let showProfileButton = UIBarButtonItem(
             image: profileIcon,
@@ -64,7 +64,7 @@ final class MainContentViewController: NamedViewController {
             action: #selector(didTapFilterButton)
         )
         
-        let barButtonItems: [UIBarButtonItem] = [filterBarButtonItem, showProfileButton]
+        let barButtonItems: [UIBarButtonItem] = [showProfileButton, filterBarButtonItem]
         navigationItem.rightBarButtonItems = barButtonItems
         navigationItem.title = "Main"
     }
