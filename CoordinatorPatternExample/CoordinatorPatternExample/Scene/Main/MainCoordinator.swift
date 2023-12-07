@@ -31,6 +31,10 @@ final class MainCoordinator: Coordinator {
     // MARK: Function(s)
     
     func start() {
+        showMainFlow()
+    }
+    
+    private func showMainFlow() {
         let logOutButton = UIBarButtonItem(
             title: "Log Out",
             style: .done,

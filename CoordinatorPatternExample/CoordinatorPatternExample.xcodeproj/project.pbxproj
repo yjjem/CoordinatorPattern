@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				DF62BED82ACAEB8900833DE5 /* Common */,
-				DF62BED52ACADE0D00833DE5 /* Main */,
 				DF62BEDB2ACAEF5600833DE5 /* Authentication */,
+				DF62BED52ACADE0D00833DE5 /* Main */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -128,9 +128,9 @@
 		DF62BED52ACADE0D00833DE5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
 				DFC0538C2ACD8E2200DF317E /* List */,
 				DFC0538D2ACD8E2A00DF317E /* Detail */,
-				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
