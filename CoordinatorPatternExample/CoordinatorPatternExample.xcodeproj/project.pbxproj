@@ -16,6 +16,7 @@
 		DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */; };
 		DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */; };
 		DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */; };
+		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */; };
 		DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */; };
 		DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */; };
@@ -38,6 +39,7 @@
 		DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DF62BED92ACAEB9700833DE5 /* NamedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedViewController.swift; sourceTree = "<group>"; };
 		DF62BEDC2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionProviderViewController.swift; sourceTree = "<group>"; };
+		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenticationType.swift; sourceTree = "<group>"; };
 		DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentStorage.swift; sourceTree = "<group>"; };
 		DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
 				DFC0538C2ACD8E2200DF317E /* List */,
 				DFC0538D2ACD8E2A00DF317E /* Detail */,
+				DF7D16B92B21C4620074B721 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -151,6 +154,14 @@
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DF7D16B92B21C4620074B721 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		DF8A67152AD2CDB500FE15D6 /* Selection */ = {
@@ -289,6 +300,7 @@
 				DFBEB00F2ACBD19500547369 /* AuthenticationCoordinator.swift in Sources */,
 				DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
+				DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
