@@ -8,7 +8,10 @@
 import UIKit
 
 protocol MainContentSelectionDelegate {
+    
     func didSelectItem(with index: Int)
+    func didTapFilterButton()
+    func didTapProfileButton()
 }
 
 final class MainContentViewController: NamedViewController {
@@ -32,6 +35,7 @@ final class MainContentViewController: NamedViewController {
         super.loadView()
         
         configureHierarchy()
+        configureNavigationItem()
         configureCollectionView()
     }
     
@@ -39,6 +43,38 @@ final class MainContentViewController: NamedViewController {
         super.viewWillAppear(animated)
         
         contentStorage.fetchMainContentList()
+    }
+    
+    // MARK: Private Function(s)
+    
+    private func configureNavigationItem() {
+        let profileIcon = UIImage(systemName: "person.crop.circle.fill")
+        let filterIcon = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+        
+        let showProfileButton = UIBarButtonItem(
+            image: profileIcon,
+            style: .plain,
+            target: self,
+            action: #selector(didTapShowProfileButton)
+        )
+        let filterBarButtonItem = UIBarButtonItem(
+            image: filterIcon,
+            style: .plain,
+            target: self,
+            action: #selector(didTapFilterButton)
+        )
+        
+        let barButtonItems: [UIBarButtonItem] = [filterBarButtonItem, showProfileButton]
+        navigationItem.rightBarButtonItems = barButtonItems
+        navigationItem.title = "Main"
+    }
+    
+    @objc private func didTapFilterButton() {
+        delegate?.didTapFilterButton()
+    }
+    
+    @objc private func didTapShowProfileButton() {
+        delegate?.didTapProfileButton()
     }
     
     private func configureCollectionView() {

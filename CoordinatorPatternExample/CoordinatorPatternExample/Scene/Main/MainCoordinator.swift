@@ -34,33 +34,45 @@ final class MainCoordinator: Coordinator {
         showMainFlow()
     }
     
+    // MARK: Private Function(s)
+    
     private func showMainFlow() {
-        let logOutButton = UIBarButtonItem(
-            title: "Log Out",
-            style: .done,
-            target: self, action: #selector(didTapLogOutButton)
-        )
-        
         let mainContentViewController = MainContentViewController()
-        mainContentViewController.navigationItem.rightBarButtonItem = logOutButton
-        mainContentViewController.title = "Main"
         mainContentViewController.delegate = self
-        
-        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.setViewControllers([mainContentViewController], animated: true)
     }
     
-    @objc func didTapLogOutButton() {
-        delegate?.finishMainCoordinator()
+    private func showProfileFlow() {
+        let profileViewController = MainProfileViewController()
+        profileViewController.delegate = self
+        navigationController.pushViewController(profileViewController, animated: true)
     }
 }
+
+// MARK: MainProfileViewControllerDelegate
+
+extension MainCoordinator: MainProfileViewControllerDelegate {
+    
+    func didTapLogOutButton() {
+        delegate?.finishMainCoordinator(identifier)
+    }
+}
+
+// MARK: MainContentSelectionDelegate
 
 extension MainCoordinator: MainContentSelectionDelegate {
     
     func didSelectItem(with index: Int) {
         let detailViewController = MainContentDetailViewController()
         detailViewController.configureName(with: String(index))
-        
         navigationController.pushViewController(detailViewController, animated: true)
+    }
+    
+    func didTapFilterButton() {
+        
+    }
+    
+    func didTapProfileButton() {
+        showProfileFlow()
     }
 }
