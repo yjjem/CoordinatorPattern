@@ -135,7 +135,6 @@
 				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
 				DFC0538C2ACD8E2200DF317E /* List */,
 				DFC0538D2ACD8E2A00DF317E /* Detail */,
-				DF7D16B92B21C4620074B721 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -211,6 +210,7 @@
 		DFC0538C2ACD8E2200DF317E /* List */ = {
 			isa = PBXGroup;
 			children = (
+				DF7D16B92B21C4620074B721 /* Profile */,
 				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
 				DFBEB0162ACC111C00547369 /* MainContentCell.swift */,
 			);
