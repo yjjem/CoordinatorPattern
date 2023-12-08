@@ -47,6 +47,13 @@ final class MainCoordinator: Coordinator {
         profileViewController.delegate = self
         navigationController.pushViewController(profileViewController, animated: true)
     }
+    
+    private func showFilterFlow() {
+        let filterViewController = MainFilterViewController()
+        filterViewController.modalPresentationStyle = .popover
+        filterViewController.delegate = self
+        navigationController.present(filterViewController, animated: true)
+    }
 }
 
 // MARK: MainProfileViewControllerDelegate
@@ -55,6 +62,13 @@ extension MainCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
         delegate?.finishMainCoordinator(identifier)
+    }
+}
+
+extension MainCoordinator: MainFilterViewControllerDelegate {
+    
+    func didSelectRange(minNumber: Int, maxNumber: Int) {
+        // TODO: connect to main view
     }
 }
 
@@ -69,7 +83,7 @@ extension MainCoordinator: MainContentSelectionDelegate {
     }
     
     func didTapFilterButton() {
-        
+        showFilterFlow()
     }
     
     func didTapProfileButton() {
