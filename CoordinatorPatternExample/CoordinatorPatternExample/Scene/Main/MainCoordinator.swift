@@ -39,7 +39,7 @@ final class MainCoordinator: Coordinator {
     private func showMainFlow() {
         let mainContentViewController = MainContentViewController()
         mainContentViewController.delegate = self
-        navigationController.setViewControllers([mainContentViewController], animated: true)
+        navigationController.pushViewController(mainContentViewController, animated: true)
     }
     
     private func showDetailFlow(_ itemNumber: Int) {
