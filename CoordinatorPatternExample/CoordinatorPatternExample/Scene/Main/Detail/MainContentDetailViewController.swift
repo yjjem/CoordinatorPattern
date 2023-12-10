@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainContentDetailViewController: NamedViewController {
+final class MainContentDetailViewController: SingleLargeTitleViewController {
     
     // MARK: Override(s)
     

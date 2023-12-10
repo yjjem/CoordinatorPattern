@@ -1,5 +1,5 @@
 //
-//  AuthenticationInspector.swift
+//  AuthInspector.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AuthenticationInspector {
+final class AuthInspector {
     
     // MARK: Property(s)
     

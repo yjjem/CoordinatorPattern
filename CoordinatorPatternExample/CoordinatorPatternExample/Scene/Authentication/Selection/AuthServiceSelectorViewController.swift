@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol AuthenticationDelegate {
-    func startAuthentication(_ authenticationType: AuthenticationType)
+protocol AuthServiceSelectorViewControllerDelegate {
+    func startAuthentication(_ authenticationType: AuthServiceType)
 }
 
-final class AuthenticationSelectionProviderViewController: NamedViewController {
+final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
     
     // MARK: Property(s)
     
-    var delegate: AuthenticationDelegate?
+    var delegate: AuthServiceSelectorViewControllerDelegate?
     
     private let authenticationButtonsStack: UIStackView = {
         let stack = UIStackView()

@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol AuthenticationFinishDelegate {
+protocol AuthUserEntryViewControllerDelegate {
     
-    func didFinishAuthentication(_ authenticationType: AuthenticationType)
+    func didFinishAuthentication(_ authenticationType: AuthServiceType)
 }
 
-final class AuthenticationHostViewController: NamedViewController {
+final class AuthUserEntryViewController: SingleLargeTitleViewController {
     
     // MARK: Property(s)
     
-    var delegate: AuthenticationFinishDelegate?
+    var delegate: AuthUserEntryViewControllerDelegate?
     
-    private var authenticationType: AuthenticationType?
+    private var authenticationType: AuthServiceType?
     
     private let finishButton: UIButton = {
         let button = UIButton(type: .system)
@@ -34,7 +34,6 @@ final class AuthenticationHostViewController: NamedViewController {
     
     override func loadView() {
         super.loadView()
-        
         configureButtonAction()
         configureHierarchy()
     }
@@ -42,19 +41,16 @@ final class AuthenticationHostViewController: NamedViewController {
     // MARK: Runtime Function(s)
     
     @objc func didTapFinishButton() {
-        
         guard let authenticationType else { return }
-        
         finishButton.isEnabled = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
             self.delegate?.didFinishAuthentication(authenticationType)
         }
     }
     
     // MARK: Function(s)
     
-    func configureWith(_ authenticationType: AuthenticationType) {
+    func configureWith(_ authenticationType: AuthServiceType) {
         self.authenticationType = authenticationType
         view.backgroundColor = authenticationType.color
         configureName(with: authenticationType.name)
@@ -63,17 +59,12 @@ final class AuthenticationHostViewController: NamedViewController {
     // MARK: Private Function(s)
     
     private func configureButtonAction() {
-        finishButton.addTarget(
-            self, action: #selector(didTapFinishButton),
-            for: .touchUpInside
-        )
+        finishButton.addTarget(self, action: #selector(didTapFinishButton), for: .touchUpInside)
     }
     
     private func configureHierarchy() {
         view.addSubview(finishButton)
-        
         finishButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             finishButton.topAnchor.constraint(equalTo: nameLabelBottomAnchor, constant: 50),
             finishButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

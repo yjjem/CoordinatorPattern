@@ -1,5 +1,5 @@
 //
-//  AthenticationType.swift
+//  AuthServiceType.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum AuthenticationType: String {
+enum AuthServiceType: String {
     case naver
     case kakao
     case google

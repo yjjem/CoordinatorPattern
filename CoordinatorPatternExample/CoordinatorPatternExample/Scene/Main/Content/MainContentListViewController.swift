@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol MainContentItemSelectionDelegate {
+protocol MainContentListItemSelectionDelegate {
     func didSelectItem(_ item: MainContent)
 }
 
-protocol MainContentButtonSelectionDelegate {
+protocol MainContentBarButtonSelectionDelegate {
     func didTapFilterButton()
     func didTapProfileButton()
 }
 
-final class MainContentViewController: NamedViewController {
+final class MainContentListViewController: SingleLargeTitleViewController {
     
     // MARK: Property(s)
     
-    var itemSelectionDelegate: MainContentItemSelectionDelegate?
-    var buttonSelectionDelegate: MainContentButtonSelectionDelegate?
+    var itemSelectionDelegate: MainContentListItemSelectionDelegate?
+    var barButtonsDelegate: MainContentBarButtonSelectionDelegate?
     
     private let contentStorage: MainContentStorage = .init()
     
@@ -80,11 +80,11 @@ final class MainContentViewController: NamedViewController {
     }
     
     @objc private func didTapFilterButton() {
-        buttonSelectionDelegate?.didTapFilterButton()
+        barButtonsDelegate?.didTapFilterButton()
     }
     
     @objc private func didTapShowProfileButton() {
-        buttonSelectionDelegate?.didTapProfileButton()
+        barButtonsDelegate?.didTapProfileButton()
     }
     
     private func configureCollectionView() {
@@ -138,7 +138,7 @@ final class MainContentViewController: NamedViewController {
 
 // MARK: UICollectionViewDataSource
 
-extension MainContentViewController: UICollectionViewDataSource {
+extension MainContentListViewController: UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -165,7 +165,7 @@ extension MainContentViewController: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegate
 
-extension MainContentViewController: UICollectionViewDelegate {
+extension MainContentListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItemIndex = indexPath.item

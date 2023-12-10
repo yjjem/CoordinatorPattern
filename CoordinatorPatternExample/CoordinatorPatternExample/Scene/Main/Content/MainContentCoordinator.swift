@@ -20,19 +20,19 @@ final class MainContentCoordinator: Coordinator {
     
     let identifier: UUID = UUID()
     
-    private let rootController: MainContentViewController
-    private let authenticator: Authenticator = Authenticator()
+    private let rootController: MainContentListViewController
+    private let authenticator: AuthPerformer = AuthPerformer()
     
     // MARK: Initializer(s)
     
-    init(rootController: MainContentViewController) {
+    init(rootController: MainContentListViewController) {
         self.rootController = rootController
     }
     
     // MARK: Function(s)
     
     func start() {
-        rootController.buttonSelectionDelegate = self
+        rootController.barButtonsDelegate = self
     }
     
     // MARK: Private Function(s)
@@ -52,7 +52,7 @@ final class MainContentCoordinator: Coordinator {
 
 // MARK: MainContentButtonSelectionDelegate
 
-extension MainContentCoordinator: MainContentButtonSelectionDelegate {
+extension MainContentCoordinator: MainContentBarButtonSelectionDelegate {
     
     func didTapFilterButton() {
         showFilterFlow()

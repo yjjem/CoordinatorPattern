@@ -7,22 +7,22 @@
 
 import UIKit
 
-protocol AuthenticationCoordinatorFinishDelegate {
+protocol AuthCoordinatorFinishDelegate {
     
     func finishAuthenticationCoordinator(_ identifier: UUID)
 }
 
-final class AuthenticationCoordinator: Coordinator {
+final class AuthCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: AuthenticationCoordinatorFinishDelegate?
+    var delegate: AuthCoordinatorFinishDelegate?
     var childCoordinators: [UUID: Coordinator] = [:]
     
     let identifier: UUID = UUID()
     let navigationController: UINavigationController
     
-    private let authenticator: Authenticator = .init()
+    private let authenticator: AuthPerformer = .init()
     
     // MARK: Initializer(s)
     
@@ -33,7 +33,7 @@ final class AuthenticationCoordinator: Coordinator {
     // MARK: Function(s)
     
     func start() {
-        let authenticationViewController = AuthenticationSelectionProviderViewController()
+        let authenticationViewController = AuthServiceSelectorViewController()
         authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
         navigationController.setViewControllers([authenticationViewController], animated: true)
@@ -42,14 +42,14 @@ final class AuthenticationCoordinator: Coordinator {
 
 // MARK: AuthenticationDelegate
 
-extension AuthenticationCoordinator: AuthenticationDelegate {
+extension AuthCoordinator: AuthServiceSelectorViewControllerDelegate {
     
-    func startAuthentication(_ authenticationType: AuthenticationType) {
+    func startAuthentication(_ authenticationType: AuthServiceType) {
         startSelectedAuthentication(authenticationType)
     }
     
-    func startSelectedAuthentication(_ authenticationType: AuthenticationType) {
-        let authenticationDetail = AuthenticationHostViewController()
+    func startSelectedAuthentication(_ authenticationType: AuthServiceType) {
+        let authenticationDetail = AuthUserEntryViewController()
         authenticationDetail.delegate = self
         authenticationDetail.configureWith(authenticationType)
         navigationController.pushViewController(authenticationDetail, animated: true)
@@ -58,9 +58,9 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
 
 // MARK: AuthenticationFinishDelegate
 
-extension AuthenticationCoordinator: AuthenticationFinishDelegate {
+extension AuthCoordinator: AuthUserEntryViewControllerDelegate {
     
-    func didFinishAuthentication(_ authenticationType: AuthenticationType) {
+    func didFinishAuthentication(_ authenticationType: AuthServiceType) {
         authenticator.logIn()
         delegate?.finishAuthenticationCoordinator(identifier)
     }

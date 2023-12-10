@@ -1,5 +1,5 @@
 //
-//  LabeledViewController.swift
+//  SingleLargeTitleViewController.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NamedViewController: UIViewController {
+class SingleLargeTitleViewController: UIViewController {
     
     // MARK: Property(s)
     

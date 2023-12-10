@@ -1,5 +1,5 @@
 //
-//  Authenticator.swift
+//  AuthPerformer.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Authenticator {
+final class AuthPerformer {
     
     // MARK: Property(s)
     

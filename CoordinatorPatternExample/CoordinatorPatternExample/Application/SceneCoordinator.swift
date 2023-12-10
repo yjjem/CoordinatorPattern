@@ -16,7 +16,7 @@ final class SceneCoordinator: Coordinator {
     
     private let window: UIWindow
     private let navigationController: UINavigationController
-    private let authenticationInspector: AuthenticationInspector = .init()
+    private let authenticationInspector: AuthInspector = .init()
     
     //MARK: Initializer(s)
     
@@ -46,7 +46,7 @@ final class SceneCoordinator: Coordinator {
     }
     
     func showAuthenticationFlow(on navigation: UINavigationController) {
-        let authenticationFlowCoordinator = AuthenticationCoordinator(
+        let authenticationFlowCoordinator = AuthCoordinator(
             navigationController: navigation
         )
         authenticationFlowCoordinator.delegate = self
@@ -57,7 +57,7 @@ final class SceneCoordinator: Coordinator {
 
 // MARK: AuthenticationCoordinatorFinishDelegate
 
-extension SceneCoordinator: AuthenticationCoordinatorFinishDelegate {
+extension SceneCoordinator: AuthCoordinatorFinishDelegate {
     
     func finishAuthenticationCoordinator(_ identifier: UUID) {
         childCoordinators.removeValue(forKey: identifier)

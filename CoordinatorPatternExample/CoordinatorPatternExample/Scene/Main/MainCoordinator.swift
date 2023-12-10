@@ -22,7 +22,7 @@ final class MainCoordinator: Coordinator {
     let identifier: UUID = UUID()
     
     private let navigationController: UINavigationController
-    private let authenticator: Authenticator = Authenticator()
+    private let authenticator: AuthPerformer = AuthPerformer()
     
     // MARK: Initializer(s)
     
@@ -39,7 +39,7 @@ final class MainCoordinator: Coordinator {
     // MARK: Private Function(s)
     
     private func showMainFlow() {
-        let mainContentViewController = MainContentViewController()
+        let mainContentViewController = MainContentListViewController()
         mainContentViewController.itemSelectionDelegate = self
         navigationController.setViewControllers([mainContentViewController], animated: true)
         
@@ -57,19 +57,9 @@ final class MainCoordinator: Coordinator {
     }
 }
 
-// MARK: MainProfileViewControllerDelegate
-
-extension MainCoordinator: MainProfileViewControllerDelegate {
-    
-    func didTapLogOutButton() {
-        authenticator.logOut()
-        delegate?.finishMainCoordinator(identifier)
-    }
-}
-
 // MARK: MainContentSelectionDelegate
 
-extension MainCoordinator: MainContentItemSelectionDelegate {
+extension MainCoordinator: MainContentListItemSelectionDelegate {
     
     func didSelectItem(_ item: MainContent) {
         showDetailFlow(of: item)
