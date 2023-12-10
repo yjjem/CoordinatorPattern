@@ -56,7 +56,6 @@ final class MainFilterViewController: UIViewController {
             showInvalidSelectionAlert()
         } else {
             delegate?.didSelectRange(minNumber: minimumValue, maxNumber: maximumValue)
-            dismiss(animated: true)
         }
     }
     
