@@ -48,6 +48,13 @@ final class MainContentViewController: NamedViewController {
         contentStorage.fetchMainContentList()
     }
     
+    // MARK: Function(s)
+    
+    func selectItemsRange(minValue: Int, maxValue: Int) {
+        contentStorage.filterContentList(minValue: minValue, maxValue: maxValue)
+        imageContentCollectionView.reloadData()
+    }
+    
     // MARK: Private Function(s)
     
     private func configureNavigationItem() {

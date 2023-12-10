@@ -19,6 +19,7 @@
 		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */; };
 		DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */; };
+		DF7D16C42B2462400074B721 /* MainContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C32B2462400074B721 /* MainContentCoordinator.swift */; };
 		DF7D16C62B25A7BC0074B721 /* AuthenticationInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C52B25A7BC0074B721 /* AuthenticationInspector.swift */; };
 		DF7D16C82B25AA9E0074B721 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C72B25AA9E0074B721 /* Authenticator.swift */; };
 		DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */; };
@@ -46,6 +47,7 @@
 		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewController.swift; sourceTree = "<group>"; };
 		DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectorView.swift; sourceTree = "<group>"; };
+		DF7D16C32B2462400074B721 /* MainContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentCoordinator.swift; sourceTree = "<group>"; };
 		DF7D16C52B25A7BC0074B721 /* AuthenticationInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInspector.swift; sourceTree = "<group>"; };
 		DF7D16C72B25AA9E0074B721 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenticationType.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		DFC0538C2ACD8E2200DF317E /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				DF7D16C32B2462400074B721 /* MainContentCoordinator.swift */,
 				DF62BEBD2AC949C800833DE5 /* MainContentViewController.swift */,
 				DFBEB0162ACC111C00547369 /* MainContentCell.swift */,
 			);
@@ -323,6 +326,7 @@
 				DF7D16C62B25A7BC0074B721 /* AuthenticationInspector.swift in Sources */,
 				DF7D16C82B25AA9E0074B721 /* Authenticator.swift in Sources */,
 				DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */,
+				DF7D16C42B2462400074B721 /* MainContentCoordinator.swift in Sources */,
 				DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
 				DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */,

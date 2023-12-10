@@ -41,27 +41,19 @@ final class MainCoordinator: Coordinator {
     private func showMainFlow() {
         let mainContentViewController = MainContentViewController()
         mainContentViewController.itemSelectionDelegate = self
-        navigationController.pushViewController(mainContentViewController, animated: true)
+        navigationController.setViewControllers([mainContentViewController], animated: true)
+        
+        let mainContentCoordinator = MainContentCoordinator(
+            rootController: mainContentViewController
+        )
+        mainContentCoordinator.start()
+        mainContentCoordinator.delegate = self
     }
     
-    private func showDetailFlow(_ itemNumber: Int) {
-        let selectedItemName: String = String(itemNumber)
+    private func showDetailFlow(of content: MainContent) {
         let detailViewController = MainContentDetailViewController()
-        detailViewController.configureName(with: selectedItemName)
+        detailViewController.configureWithContentItem(content: content)
         navigationController.pushViewController(detailViewController, animated: true)
-    }
-    
-    private func showProfileFlow() {
-        let profileViewController = MainProfileViewController()
-        profileViewController.delegate = self
-        navigationController.pushViewController(profileViewController, animated: true)
-    }
-    
-    private func showFilterFlow() {
-        let filterViewController = MainFilterViewController()
-        filterViewController.modalPresentationStyle = .popover
-        filterViewController.delegate = self
-        navigationController.present(filterViewController, animated: true)
     }
 }
 
@@ -84,11 +76,12 @@ extension MainCoordinator: MainContentItemSelectionDelegate {
     }
 }
 
-// MARK: MainContentSelectionDelegate
+// MARK: MainContentCoordinatorDelegate
 
-extension MainCoordinator: MainContentItemSelectionDelegate {
+extension MainCoordinator: MainContentCoordinatorDelegate {
     
-    func didSelectItem(at index: Int) {
-        showDetailFlow(index)
+    func didFinishWithLogOut(_ identifier: UUID) {
+        childCoordinators.removeAll()
+        delegate?.finishMainCoordinator(identifier)
     }
 }
