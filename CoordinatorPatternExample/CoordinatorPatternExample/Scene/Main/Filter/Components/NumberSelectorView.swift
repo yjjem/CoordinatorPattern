@@ -11,7 +11,7 @@ final class NumberSelectorView: UIView {
     
     // MARK: Property(s)
     
-    var selectedNumber: ((Int) -> Void)?
+    var didSelectNumber: ((Int) -> Void)?
     
     private var numbers: [Int] = Array(1...80)
     
@@ -102,7 +102,7 @@ extension NumberSelectorView: UIPickerViewDelegate {
         inComponent component: Int
     ) {
         removeInvalidSelectionMark()
-        selectedNumber?(numbers[row])
+        didSelectNumber?(numbers[row])
     }
 }
 

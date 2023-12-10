@@ -71,11 +71,11 @@ final class MainFilterViewController: UIViewController {
     }
     
     private func selectedValues() {
-        minSelector.selectedNumber = { [weak self] min in
+        minSelector.didSelectNumber = { [weak self] min in
             self?.minimumValue = min
         }
         
-        maxSelector.selectedNumber = { [weak self] max in
+        maxSelector.didSelectNumber = { [weak self] max in
             self?.maximumValue = max
         }
     }
