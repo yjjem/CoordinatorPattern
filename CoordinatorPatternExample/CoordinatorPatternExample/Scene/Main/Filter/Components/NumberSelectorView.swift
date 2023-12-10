@@ -101,7 +101,7 @@ extension NumberSelectorView: UIPickerViewDelegate {
         inComponent component: Int
     ) {
         removeInvalidSelectionMark()
-        selectedNumber?(row)
+        selectedNumber?(numbers[row])
     }
 }
 
