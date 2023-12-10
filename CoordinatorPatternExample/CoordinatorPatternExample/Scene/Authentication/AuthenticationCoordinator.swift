@@ -36,7 +36,7 @@ final class AuthenticationCoordinator: Coordinator {
         let authenticationViewController = AuthenticationSelectionProviderViewController()
         authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
-        navigationController.viewControllers = [authenticationViewController]
+        navigationController.setViewControllers([authenticationViewController], animated: true)
     }
 }
 
