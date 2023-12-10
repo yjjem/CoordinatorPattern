@@ -14,4 +14,10 @@ final class MainContentDetailViewController: NamedViewController {
     override func loadView() {
         super.loadView()
     }
+    
+    // MARK: Function(s)
+    
+    func configureWithContentItem(content: MainContent) {
+        configureName(with: String(content.number))
+    }
 }
