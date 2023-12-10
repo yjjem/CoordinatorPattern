@@ -57,16 +57,6 @@ final class MainCoordinator: Coordinator {
     }
 }
 
-// MARK: MainProfileViewControllerDelegate
-
-extension MainCoordinator: MainProfileViewControllerDelegate {
-    
-    func didTapLogOutButton() {
-        authenticator.logOut()
-        delegate?.finishMainCoordinator(identifier)
-    }
-}
-
 // MARK: MainContentSelectionDelegate
 
 extension MainCoordinator: MainContentItemSelectionDelegate {
