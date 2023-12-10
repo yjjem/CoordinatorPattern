@@ -3,7 +3,7 @@
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
-    
+
 
 import UIKit
 
@@ -14,13 +14,13 @@ final class SceneCoordinator: Coordinator {
     var childCoordinators: [UUID: Coordinator] = [:]
     let identifier: UUID = UUID()
     
-    private var isLoggedIn: Bool = false
     private let window: UIWindow
     private let navigationController: UINavigationController
+    private let authenticationInspector: AuthenticationInspector = .init()
     
     //MARK: Initializer(s)
     
-    init(window: UIWindow, navigationController: UINavigationController = .init() ) {
+    init(window: UIWindow, navigationController: UINavigationController = .init()) {
         self.window = window
         self.navigationController = navigationController
     }
@@ -31,7 +31,7 @@ final class SceneCoordinator: Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
-        if isLoggedIn {
+        if authenticationInspector.isLoggedIn() {
             showMainFlow(on: navigationController)
         } else {
             showAuthenticationFlow(on: navigationController)

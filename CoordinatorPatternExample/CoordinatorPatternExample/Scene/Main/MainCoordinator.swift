@@ -20,7 +20,9 @@ final class MainCoordinator: Coordinator {
     var childCoordinators: [UUID: Coordinator] = [:]
     
     let identifier: UUID = UUID()
-    let navigationController: UINavigationController
+    
+    private let navigationController: UINavigationController
+    private let authenticator: Authenticator = Authenticator()
     
     // MARK: Initializer(s)
     
@@ -68,6 +70,7 @@ final class MainCoordinator: Coordinator {
 extension MainCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
+        authenticator.logOut()
         delegate?.finishMainCoordinator(identifier)
     }
 }

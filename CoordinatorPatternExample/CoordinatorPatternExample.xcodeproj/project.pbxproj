@@ -19,6 +19,8 @@
 		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */; };
 		DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */; };
+		DF7D16C62B25A7BC0074B721 /* AuthenticationInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C52B25A7BC0074B721 /* AuthenticationInspector.swift */; };
+		DF7D16C82B25AA9E0074B721 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C72B25AA9E0074B721 /* Authenticator.swift */; };
 		DF8A67132AD2CD9900FE15D6 /* AthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */; };
 		DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */; };
 		DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */; };
@@ -44,6 +46,8 @@
 		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewController.swift; sourceTree = "<group>"; };
 		DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectorView.swift; sourceTree = "<group>"; };
+		DF7D16C52B25A7BC0074B721 /* AuthenticationInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInspector.swift; sourceTree = "<group>"; };
+		DF7D16C72B25AA9E0074B721 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DF8A67122AD2CD9900FE15D6 /* AthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenticationType.swift; sourceTree = "<group>"; };
 		DF8A67182AD3E72E00FE15D6 /* MainContentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentStorage.swift; sourceTree = "<group>"; };
 		DF8A671B2AD3EE5E00FE15D6 /* MainContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContent.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		DF62BECE2AC94A9800833DE5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DF7D16C52B25A7BC0074B721 /* AuthenticationInspector.swift */,
 				DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */,
 				DF62BEB92AC949C800833DE5 /* AppDelegate.swift */,
 				DFC053832ACC4C0F00DF317E /* SceneDelegate.swift */,
@@ -154,6 +159,7 @@
 		DF62BEDB2ACAEF5600833DE5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				DF7D16C72B25AA9E0074B721 /* Authenticator.swift */,
 				DFBEB00E2ACBD19500547369 /* AuthenticationCoordinator.swift */,
 				DF8A67152AD2CDB500FE15D6 /* Selection */,
 				DF8A67162AD2D1BE00FE15D6 /* Host */,
@@ -314,6 +320,8 @@
 				DF62BEDA2ACAEB9700833DE5 /* NamedViewController.swift in Sources */,
 				DF62BED72ACADE2600833DE5 /* MainCoordinator.swift in Sources */,
 				DF62BEBE2AC949C800833DE5 /* MainContentViewController.swift in Sources */,
+				DF7D16C62B25A7BC0074B721 /* AuthenticationInspector.swift in Sources */,
+				DF7D16C82B25AA9E0074B721 /* Authenticator.swift in Sources */,
 				DF62BEDD2ACAEF6400833DE5 /* AuthenticationSelectionProviderViewController.swift in Sources */,
 				DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,

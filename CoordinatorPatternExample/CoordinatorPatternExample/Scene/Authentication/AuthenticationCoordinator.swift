@@ -22,6 +22,8 @@ final class AuthenticationCoordinator: Coordinator {
     let identifier: UUID = UUID()
     let navigationController: UINavigationController
     
+    private let authenticator: Authenticator = .init()
+    
     // MARK: Initializer(s)
     
     init(navigationController: UINavigationController) {
@@ -59,6 +61,7 @@ extension AuthenticationCoordinator: AuthenticationDelegate {
 extension AuthenticationCoordinator: AuthenticationFinishDelegate {
     
     func didFinishAuthentication(_ authenticationType: AuthenticationType) {
+        authenticator.logIn()
         delegate?.finishAuthenticationCoordinator(identifier)
     }
 }
