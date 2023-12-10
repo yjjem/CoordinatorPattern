@@ -7,9 +7,11 @@
 
 import UIKit
 
-protocol MainContentSelectionDelegate {
-    
-    func didSelectItem(with index: Int)
+protocol MainContentItemSelectionDelegate {
+    func didSelectItem(at index: Int)
+}
+
+protocol MainContentButtonSelectionDelegate {
     func didTapFilterButton()
     func didTapProfileButton()
 }
@@ -18,7 +20,8 @@ final class MainContentViewController: NamedViewController {
     
     // MARK: Property(s)
     
-    var delegate: MainContentSelectionDelegate?
+    var itemSelectionDelegate: MainContentItemSelectionDelegate?
+    var buttonSelectionDelegate: MainContentButtonSelectionDelegate?
     
     private let contentStorage: MainContentStorage = .init()
     
@@ -70,23 +73,18 @@ final class MainContentViewController: NamedViewController {
     }
     
     @objc private func didTapFilterButton() {
-        delegate?.didTapFilterButton()
+        buttonSelectionDelegate?.didTapFilterButton()
     }
     
     @objc private func didTapShowProfileButton() {
-        delegate?.didTapProfileButton()
+        buttonSelectionDelegate?.didTapProfileButton()
     }
     
     private func configureCollectionView() {
-        
+        let collectionViewLayout = makeCollectionViewLayout()
         imageContentCollectionView.dataSource = self
         imageContentCollectionView.delegate = self
-        
-        imageContentCollectionView.setCollectionViewLayout(
-            makeCollectionViewLayout(),
-            animated: true
-        )
-        
+        imageContentCollectionView.setCollectionViewLayout(collectionViewLayout, animated: true)
         imageContentCollectionView.register(
             MainContentCell.self,
             forCellWithReuseIdentifier: "cell"
@@ -94,33 +92,22 @@ final class MainContentViewController: NamedViewController {
     }
     
     private func configureHierarchy() {
+        let topSafeAnchor = view.safeAreaLayoutGuide.topAnchor
         view.addSubview(imageContentCollectionView)
-        
         imageContentCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            imageContentCollectionView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor
-            ),
-            imageContentCollectionView.bottomAnchor.constraint(
-                equalTo: view.bottomAnchor
-            ),
-            imageContentCollectionView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor
-            ),
-            imageContentCollectionView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor
-            )
+            imageContentCollectionView.topAnchor.constraint(equalTo: topSafeAnchor),
+            imageContentCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imageContentCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageContentCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
     private func makeCollectionViewLayout() -> UICollectionViewCompositionalLayout {
-        
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalWidth(0.5)
         )
-        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalWidth(0.5)
@@ -155,7 +142,6 @@ extension MainContentViewController: UICollectionViewDataSource {
             withReuseIdentifier: "cell",
             for: indexPath
         ) as! MainContentCell
-        
         let content = contentStorage.contentList[indexPath.item]
         cell.configure(with: content.number)
         
@@ -175,6 +161,6 @@ extension MainContentViewController: UICollectionViewDataSource {
 extension MainContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectItem(with: indexPath.item)
+        itemSelectionDelegate?.didSelectItem(at: indexPath.item)
     }
 }

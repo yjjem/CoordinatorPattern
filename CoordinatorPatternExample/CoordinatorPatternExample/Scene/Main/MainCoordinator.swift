@@ -40,7 +40,7 @@ final class MainCoordinator: Coordinator {
     
     private func showMainFlow() {
         let mainContentViewController = MainContentViewController()
-        mainContentViewController.delegate = self
+        mainContentViewController.itemSelectionDelegate = self
         navigationController.pushViewController(mainContentViewController, animated: true)
     }
     
@@ -84,17 +84,9 @@ extension MainCoordinator: MainFilterViewControllerDelegate {
 
 // MARK: MainContentSelectionDelegate
 
-extension MainCoordinator: MainContentSelectionDelegate {
+extension MainCoordinator: MainContentItemSelectionDelegate {
     
-    func didSelectItem(with index: Int) {
+    func didSelectItem(at index: Int) {
         showDetailFlow(index)
-    }
-    
-    func didTapFilterButton() {
-        showFilterFlow()
-    }
-    
-    func didTapProfileButton() {
-        showProfileFlow()
     }
 }
