@@ -75,10 +75,12 @@ extension MainCoordinator: MainProfileViewControllerDelegate {
     }
 }
 
-extension MainCoordinator: MainFilterViewControllerDelegate {
+// MARK: MainContentSelectionDelegate
+
+extension MainCoordinator: MainContentItemSelectionDelegate {
     
-    func didSelectRange(minNumber: Int, maxNumber: Int) {
-        // TODO: connect to main view
+    func didSelectItem(_ item: MainContent) {
+        showDetailFlow(of: item)
     }
 }
 

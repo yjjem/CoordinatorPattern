@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainContentItemSelectionDelegate {
-    func didSelectItem(at index: Int)
+    func didSelectItem(_ item: MainContent)
 }
 
 protocol MainContentButtonSelectionDelegate {
@@ -161,6 +161,8 @@ extension MainContentViewController: UICollectionViewDataSource {
 extension MainContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        itemSelectionDelegate?.didSelectItem(at: indexPath.item)
+        let selectedItemIndex = indexPath.item
+        let selectedItem = contentStorage.contentList[selectedItemIndex]
+        itemSelectionDelegate?.didSelectItem(selectedItem)
     }
 }
