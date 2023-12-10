@@ -29,11 +29,12 @@ final class NumberSelectorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(name: String) {
+    convenience init(name: String, defaultValue: Int = 0) {
         self.init(frame: .zero)
         setTitle(name)
         configureHierarchy()
         additionalSettings()
+        numberPicker.selectRow(defaultValue - 1, inComponent: 0, animated: false)
     }
     
     // MARK: Function(s)
@@ -114,8 +115,4 @@ extension NumberSelectorView: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return numbers.count
     }
-}
-
-#Preview {
-    NumberSelectorView(name: "min")
 }

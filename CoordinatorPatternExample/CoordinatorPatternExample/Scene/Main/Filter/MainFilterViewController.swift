@@ -22,7 +22,7 @@ final class MainFilterViewController: UIViewController {
     
     private let titleLabel: UILabel = UILabel()
     private let minSelector: NumberSelectorView = NumberSelectorView(name: "min")
-    private let maxSelector: NumberSelectorView = NumberSelectorView(name: "max")
+    private let maxSelector: NumberSelectorView = NumberSelectorView(name: "max", defaultValue: 80)
     private let selectorStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
