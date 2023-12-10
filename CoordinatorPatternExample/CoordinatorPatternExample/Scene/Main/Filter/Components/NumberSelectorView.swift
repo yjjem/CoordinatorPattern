@@ -86,6 +86,8 @@ final class NumberSelectorView: UIView {
     }
 }
 
+// MARK: UIPickerViewDelegate
+
 extension NumberSelectorView: UIPickerViewDelegate {
     
     func pickerView(
