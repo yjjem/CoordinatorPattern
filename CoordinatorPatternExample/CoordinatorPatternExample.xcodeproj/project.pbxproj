@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF5D09172B27C4BC00410D2D /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D09162B27C4BC00410D2D /* TabCoordinator.swift */; };
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
 		DF62BEC32AC949C900833DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF62BEC22AC949C900833DE5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF5D09162B27C4BC00410D2D /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPatternExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF62BEB92AC949C800833DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentListViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				DF62BED62ACADE2600833DE5 /* MainCoordinator.swift */,
 				DFC0538C2ACD8E2200DF317E /* Content */,
 				DFC0538D2ACD8E2A00DF317E /* Detail */,
+				DF5D09162B27C4BC00410D2D /* TabCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				DFBEB0152ACC022200547369 /* AuthUserEntryViewController.swift in Sources */,
 				DFBEB00F2ACBD19500547369 /* AuthCoordinator.swift in Sources */,
 				DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */,
+				DF5D09172B27C4BC00410D2D /* TabCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 				DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */,
 				DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */,
