@@ -99,8 +99,8 @@
 		DF62BEB82AC949C800833DE5 /* CoordinatorPatternExample */ = {
 			isa = PBXGroup;
 			children = (
-				DF62BECE2AC94A9800833DE5 /* Application */,
 				DF62BED12AC94D6600833DE5 /* Common */,
+				DF62BECE2AC94A9800833DE5 /* Application */,
 				DF62BED22AC94D7200833DE5 /* Scene */,
 				DF8A67172AD3E71500FE15D6 /* Data */,
 				DF62BECD2AC94A8600833DE5 /* Resources */,
