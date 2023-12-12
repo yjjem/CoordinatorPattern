@@ -34,9 +34,21 @@ final class TabCoordinator: Coordinator {
     // MARK: Private Function(s)
         
     private func configureTabController() {
-        let tabViewControllers: [UIViewController] = []
+        let listTab = makeListTab()
+        let tabViewControllers: [UIViewController] = [listTab]
         tabBarController.setViewControllers(tabViewControllers, animated: true)
     }
+    
+    private func makeListTab() -> MainContentListViewController {
+        let icon = UIImage(systemName: "list.bullet")
+        let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: nil)
+        let contentListViewController = MainContentListViewController()
+        contentListViewController.tabBarItem = tabBarItem
         
+        let listCoordinator = MainContentCoordinator(rootController: contentListViewController)
+        listCoordinator.start()
+        childCoordinators[listCoordinator.identifier] = listCoordinator
+        
+        return contentListViewController
     }
 }
