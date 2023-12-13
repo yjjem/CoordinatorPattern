@@ -14,34 +14,34 @@ final class TabCoordinator: Coordinator {
     var childCoordinators: [UUID : Coordinator] = [:]
     let identifier: UUID = UUID()
     
-    private let navigationController: UINavigationController
-    private let tabBarController: UITabBarController = {
-        let tabController = UITabBarController()
-        return tabController
-    }()
+    private let window: UIWindow
+    private let tabBarController: UITabBarController = .init()
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(window: UIWindow) {
+        self.window = window
     }
     
     // MARK: Function(s)
     
     func start() {
         configureTabController()
-        navigationController.setViewControllers([tabBarController], animated: true)
+        window.rootViewController = tabBarController
     }
     
     // MARK: Private Function(s)
-        
+    
     private func configureTabController() {
         let listTab = makeListTab()
-        let tabViewControllers: [UIViewController] = [listTab]
-        tabBarController.setViewControllers(tabViewControllers, animated: true)
+        var appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        tabBarController.tabBar.standardAppearance = appearance
+        tabBarController.tabBar.scrollEdgeAppearance = appearance
+        tabBarController.viewControllers = [listTab]
     }
     
     private func makeListTab() -> MainContentListViewController {
         let icon = UIImage(systemName: "list.bullet")
-        let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: nil)
+        let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: icon)
         let contentListViewController = MainContentListViewController()
         contentListViewController.tabBarItem = tabBarItem
         
