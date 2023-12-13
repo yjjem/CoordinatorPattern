@@ -32,11 +32,12 @@ final class TabCoordinator: Coordinator {
     
     private func configureTabController() {
         let listTab = makeListTab()
+        let profileTab = makeProfileTab()
         var appearance = UITabBarAppearance()
         appearance.configureWithDefaultBackground()
         tabBarController.tabBar.standardAppearance = appearance
         tabBarController.tabBar.scrollEdgeAppearance = appearance
-        tabBarController.viewControllers = [listTab]
+        tabBarController.viewControllers = [listTab, profileTab]
     }
     
     private func makeListTab() -> MainContentListViewController {
@@ -50,5 +51,14 @@ final class TabCoordinator: Coordinator {
         childCoordinators[listCoordinator.identifier] = listCoordinator
         
         return contentListViewController
+    }
+    
+    private func makeProfileTab() -> MainProfileViewController {
+        let icon = UIImage(systemName: "person.crop.circle")
+        let tabBarItem = UITabBarItem(title: "Profile", image: icon, selectedImage: icon)
+        let profileViewController = MainProfileViewController()
+        profileViewController.tabBarItem = tabBarItem
+        
+        return profileViewController
     }
 }
