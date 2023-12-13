@@ -97,7 +97,7 @@ final class MainProfileViewController: UIViewController {
             logOutButton.widthAnchor.constraint(equalToConstant: 150),
             logOutButton.heightAnchor.constraint(equalToConstant: 50),
             logOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logOutButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            logOutButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100)
         ])
     }
     
