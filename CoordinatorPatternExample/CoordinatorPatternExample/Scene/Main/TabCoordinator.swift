@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TabCoordinatorFinishDelegate {
-    func didFinishWithLogOut(_ uuid: UUID)
+    func didFinishWithLogOut(_ identifier: UUID)
 }
 
 final class TabCoordinator: Coordinator {
