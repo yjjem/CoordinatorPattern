@@ -32,23 +32,21 @@ final class SceneCoordinator: Coordinator {
         window.makeKeyAndVisible()
         
         if authenticationInspector.isLoggedIn() {
-            showMainFlow(on: navigationController)
+            showTabBarFlow()
         } else {
             showAuthenticationFlow(on: navigationController)
         }
     }
     
-    func showMainFlow(on navigation: UINavigationController) {
-        let mainFlowCoordinator = MainCoordinator(navigationController: navigation)
-        mainFlowCoordinator.delegate = self
-        mainFlowCoordinator.start()
-        childCoordinators[mainFlowCoordinator.identifier] = mainFlowCoordinator
+    private func showTabBarFlow() {
+        let tabBarCoordinator = TabCoordinator(window: window)
+        tabBarCoordinator.delegate = self
+        tabBarCoordinator.start()
+        childCoordinators[tabBarCoordinator.identifier] = tabBarCoordinator
     }
     
-    func showAuthenticationFlow(on navigation: UINavigationController) {
-        let authenticationFlowCoordinator = AuthCoordinator(
-            navigationController: navigation
-        )
+    private func showAuthenticationFlow(on navigation: UINavigationController) {
+        let authenticationFlowCoordinator = AuthCoordinator(navigationController: navigation)
         authenticationFlowCoordinator.delegate = self
         authenticationFlowCoordinator.start()
         childCoordinators[authenticationFlowCoordinator.identifier] = authenticationFlowCoordinator
@@ -61,15 +59,15 @@ extension SceneCoordinator: AuthCoordinatorFinishDelegate {
     
     func finishAuthenticationCoordinator(_ identifier: UUID) {
         childCoordinators.removeValue(forKey: identifier)
-        showMainFlow(on: navigationController)
+        showTabBarFlow()
     }
 }
 
-// MARK: MainCoordinatorFinishDelegate
+// MARK: TabCoordinatorFinishDelegate
 
-extension SceneCoordinator: MainCoordinatorFinishDelegate {
+extension SceneCoordinator: TabCoordinatorFinishDelegate {
     
-    func finishMainCoordinator(_ identifier: UUID) {
+    func didFinishWithLogOut(_ identifier: UUID) {
         childCoordinators.removeValue(forKey: identifier)
         showAuthenticationFlow(on: navigationController)
     }
