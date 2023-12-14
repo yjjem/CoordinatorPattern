@@ -15,28 +15,25 @@ final class SceneCoordinator: Coordinator {
     let identifier: UUID = UUID()
     
     private let window: UIWindow
-    private let navigationController: UINavigationController
     private let authenticationInspector: AuthInspector = .init()
     
     //MARK: Initializer(s)
     
-    init(window: UIWindow, navigationController: UINavigationController = .init()) {
+    init(window: UIWindow) {
         self.window = window
-        self.navigationController = navigationController
     }
     
     // MARK: Function(s)
     
     func start() {
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        
         if authenticationInspector.isLoggedIn() {
             showTabBarFlow()
         } else {
-            showAuthenticationFlow(on: navigationController)
+            showAuthenticationFlow()
         }
     }
+    
+    // MARK: Private Function(s)
     
     private func showTabBarFlow() {
         let tabBarCoordinator = TabCoordinator(window: window)
@@ -45,8 +42,8 @@ final class SceneCoordinator: Coordinator {
         childCoordinators[tabBarCoordinator.identifier] = tabBarCoordinator
     }
     
-    private func showAuthenticationFlow(on navigation: UINavigationController) {
-        let authenticationFlowCoordinator = AuthCoordinator(navigationController: navigation)
+    private func showAuthenticationFlow() {
+        let authenticationFlowCoordinator = AuthCoordinator(window: window)
         authenticationFlowCoordinator.delegate = self
         authenticationFlowCoordinator.start()
         childCoordinators[authenticationFlowCoordinator.identifier] = authenticationFlowCoordinator
@@ -69,6 +66,6 @@ extension SceneCoordinator: TabCoordinatorFinishDelegate {
     
     func didFinishWithLogOut(_ identifier: UUID) {
         childCoordinators.removeValue(forKey: identifier)
-        showAuthenticationFlow(on: navigationController)
+        showAuthenticationFlow()
     }
 }

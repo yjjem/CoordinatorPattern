@@ -18,24 +18,31 @@ final class AuthCoordinator: Coordinator {
     
     var delegate: AuthCoordinatorFinishDelegate?
     var childCoordinators: [UUID: Coordinator] = [:]
-    
     let identifier: UUID = UUID()
-    let navigationController: UINavigationController
     
+    private let window: UIWindow
+    private let navigationController: UINavigationController = UINavigationController()
     private let authenticator: AuthPerformer = .init()
     
     // MARK: Initializer(s)
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(window: UIWindow) {
+        self.window = window
     }
     
     // MARK: Function(s)
     
     func start() {
+        window.rootViewController = navigationController
+        showAuthServiceSelectorFlow()
+    }
+    
+    // MARK: Private Function(s)
+    
+    private func showAuthServiceSelectorFlow() {
         let authenticationViewController = AuthServiceSelectorViewController()
-        authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
+        authenticationViewController.delegate = self
         navigationController.setViewControllers([authenticationViewController], animated: true)
     }
     
