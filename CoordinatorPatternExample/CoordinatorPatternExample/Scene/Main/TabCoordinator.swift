@@ -38,7 +38,7 @@ final class TabCoordinator: Coordinator {
     private func configureTabController() {
         let listTab = makeListTab()
         let profileTab = makeProfileTab()
-        var appearance = UITabBarAppearance()
+        let appearance = UITabBarAppearance()
         appearance.configureWithDefaultBackground()
         tabBarController.tabBar.standardAppearance = appearance
         tabBarController.tabBar.scrollEdgeAppearance = appearance
