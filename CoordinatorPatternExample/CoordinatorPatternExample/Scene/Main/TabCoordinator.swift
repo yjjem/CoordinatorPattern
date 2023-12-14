@@ -63,6 +63,7 @@ final class TabCoordinator: Coordinator {
         let tabBarItem = UITabBarItem(title: "Profile", image: icon, selectedImage: icon)
         let profileViewController = MainProfileViewController()
         profileViewController.tabBarItem = tabBarItem
+        profileViewController.delegate = self
         
         return profileViewController
     }
