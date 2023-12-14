@@ -1,5 +1,5 @@
 //
-//  TabCoordinator.swift
+//  TabBarCoordinator.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol TabCoordinatorFinishDelegate {
+protocol TabBarCoordinatorFinishDelegate {
     func didFinishWithLogOut(_ identifier: UUID)
 }
 
-final class TabCoordinator: Coordinator {
+final class TabBarCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: TabCoordinatorFinishDelegate?
+    var delegate: TabBarCoordinatorFinishDelegate?
     var childCoordinators: [UUID : Coordinator] = [:]
     let identifier: UUID = UUID()
     
@@ -72,7 +72,7 @@ final class TabCoordinator: Coordinator {
 
 // MARK: MainProfileViewControllerDelegate
 
-extension TabCoordinator: MainProfileViewControllerDelegate {
+extension TabBarCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
         delegate?.didFinishWithLogOut(identifier)
