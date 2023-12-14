@@ -22,6 +22,8 @@ final class TabCoordinator: Coordinator {
     private let window: UIWindow
     private let tabBarController: UITabBarController = .init()
     
+    // MARK: Initializer(s)
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -64,10 +66,11 @@ final class TabCoordinator: Coordinator {
         let profileViewController = MainProfileViewController()
         profileViewController.tabBarItem = tabBarItem
         profileViewController.delegate = self
-        
         return profileViewController
     }
 }
+
+// MARK: MainProfileViewControllerDelegate
 
 extension TabCoordinator: MainProfileViewControllerDelegate {
     
