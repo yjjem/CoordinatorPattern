@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol TabCoordinatorFinishDelegate {
+    func didFinishWithLogOut(_ uuid: UUID)
+}
+
 final class TabCoordinator: Coordinator {
     
     // MARK: Property(s)
     
+    var delegate: TabCoordinatorFinishDelegate?
     var childCoordinators: [UUID : Coordinator] = [:]
     let identifier: UUID = UUID()
     
@@ -60,5 +65,12 @@ final class TabCoordinator: Coordinator {
         profileViewController.tabBarItem = tabBarItem
         
         return profileViewController
+    }
+}
+
+extension TabCoordinator: MainProfileViewControllerDelegate {
+    
+    func didTapLogOutButton() {
+        delegate?.didFinishWithLogOut(identifier)
     }
 }
