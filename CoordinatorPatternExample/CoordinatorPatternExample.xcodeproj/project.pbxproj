@@ -152,7 +152,7 @@
 			children = (
 				DF5D09162B27C4BC00410D2D /* TabCoordinator.swift */,
 				DFC0538C2ACD8E2200DF317E /* Content */,
-				DFC0538D2ACD8E2A00DF317E /* Detail */,
+				DF7D16B92B21C4620074B721 /* Profile */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -240,8 +240,8 @@
 			children = (
 				DF7D16C32B2462400074B721 /* MainContentCoordinator.swift */,
 				DF5D09152B27438600410D2D /* List */,
+				DFC0538D2ACD8E2A00DF317E /* Detail */,
 				DF7D16BC2B22024B0074B721 /* Filter */,
-				DF7D16B92B21C4620074B721 /* Profile */,
 			);
 			path = Content;
 			sourceTree = "<group>";
