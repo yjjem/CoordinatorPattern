@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainContentCoordinatorDelegate {
-    func didFinishWithLogOut(_ identifier: UUID)
+    func didFinishWithLogOut(_ coordinator: Coordinator)
 }
 
 final class MainContentCoordinator: Coordinator {
@@ -70,7 +70,7 @@ extension MainContentCoordinator: MainProfileViewControllerDelegate {
     func didTapLogOutButton() {
         authenticator.logOut()
         rootController.dismiss(animated: true)
-        delegate?.didFinishWithLogOut(identifier)
+        delegate?.didFinishWithLogOut(self)
     }
 }
 

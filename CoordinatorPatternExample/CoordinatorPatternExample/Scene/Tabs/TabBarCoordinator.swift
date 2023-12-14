@@ -47,15 +47,16 @@ final class TabBarCoordinator: Coordinator {
         tabBarController.viewControllers = [listTab, profileTab]
     }
     
-    private func makeListTab() -> MainContentListViewController {
+    private func makeListTab() -> UINavigationController {
         let icon = UIImage(systemName: "list.bullet")
         let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: icon)
-        let contentListViewController = MainContentListViewController()
-        contentListViewController.tabBarItem = tabBarItem
-        let listCoordinator = MainContentCoordinator(rootController: contentListViewController)
+        let listTabNavigation = UINavigationController()
+        listTabNavigation.tabBarItem = tabBarItem
+        let listCoordinator = ListTabNavigationCoordinator(navigationController: listTabNavigation)
+        listCoordinator.delegate = self
         listCoordinator.start()
         addChild(coordinator: listCoordinator)
-        return contentListViewController
+        return listTabNavigation
     }
     
     private func makeProfileTab() -> MainProfileViewController {
@@ -73,6 +74,16 @@ final class TabBarCoordinator: Coordinator {
 extension TabBarCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
+        delegate?.didFinishWithLogOut(self)
+    }
+}
+
+// MARK: ListTabNavigationCoordinatorFinishDelegate
+
+extension TabBarCoordinator: ListTabNavigationCoordinatorFinishDelegate {
+    
+    func didFinish(coordinator: Coordinator) {
+        removeChild(coordinator: coordinator)
         delegate?.didFinishWithLogOut(self)
     }
 }
