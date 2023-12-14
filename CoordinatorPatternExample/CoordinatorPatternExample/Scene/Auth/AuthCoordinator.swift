@@ -38,21 +38,21 @@ final class AuthCoordinator: Coordinator {
         authenticationViewController.configureName(with: "Authentication")
         navigationController.setViewControllers([authenticationViewController], animated: true)
     }
+    
+    private func showAuthEntryFlow(authService: AuthServiceType) {
+        let authenticationDetail = AuthUserEntryViewController()
+        authenticationDetail.configureWith(authService)
+        authenticationDetail.delegate = self
+        navigationController.pushViewController(authenticationDetail, animated: true)
+    }
 }
 
 // MARK: AuthenticationDelegate
 
 extension AuthCoordinator: AuthServiceSelectorViewControllerDelegate {
     
-    func startAuthentication(_ authenticationType: AuthServiceType) {
-        startSelectedAuthentication(authenticationType)
-    }
-    
-    func startSelectedAuthentication(_ authenticationType: AuthServiceType) {
-        let authenticationDetail = AuthUserEntryViewController()
-        authenticationDetail.delegate = self
-        authenticationDetail.configureWith(authenticationType)
-        navigationController.pushViewController(authenticationDetail, animated: true)
+    func startAuthentication(_ authService: AuthServiceType) {
+        showAuthEntryFlow(authService: authService)
     }
 }
 

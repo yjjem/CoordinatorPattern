@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthServiceSelectorViewControllerDelegate {
-    func startAuthentication(_ authenticationType: AuthServiceType)
+    func startAuthentication(_ authService: AuthServiceType)
 }
 
 final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
