@@ -48,10 +48,8 @@ final class TabBarCoordinator: Coordinator {
     }
     
     private func makeListTab() -> UINavigationController {
-        let icon = UIImage(systemName: "list.bullet")
-        let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: icon)
         let listTabNavigation = UINavigationController()
-        listTabNavigation.tabBarItem = tabBarItem
+        listTabNavigation.tabBarItem = TabTypes.list.tabBarItem
         let listCoordinator = ListTabNavigationCoordinator(navigationController: listTabNavigation)
         listCoordinator.delegate = self
         listCoordinator.start()
@@ -60,10 +58,8 @@ final class TabBarCoordinator: Coordinator {
     }
     
     private func makeProfileTab() -> MainProfileViewController {
-        let icon = UIImage(systemName: "person.crop.circle")
-        let tabBarItem = UITabBarItem(title: "Profile", image: icon, selectedImage: icon)
         let profileViewController = MainProfileViewController()
-        profileViewController.tabBarItem = tabBarItem
+        profileViewController.tabBarItem = TabTypes.profile.tabBarItem
         profileViewController.delegate = self
         return profileViewController
     }
