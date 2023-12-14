@@ -19,10 +19,8 @@ final class MainContentStorage {
     
     func filterContentList(minValue: Int, maxValue: Int) {
         let filterRange = minValue...maxValue
-        print(minValue)
         resetContentList()
         contentList = contentList.filter { filterRange.contains($0.number) }
-        print(contentList)
     }
     
     // MARK: Private Function(s)
