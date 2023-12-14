@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TabBarCoordinatorFinishDelegate {
-    func didFinishWithLogOut(_ identifier: UUID)
+    func didFinishWithLogOut(_ sender: Coordinator)
 }
 
 final class TabBarCoordinator: Coordinator {
@@ -52,11 +52,9 @@ final class TabBarCoordinator: Coordinator {
         let tabBarItem = UITabBarItem(title: "List", image: icon, selectedImage: icon)
         let contentListViewController = MainContentListViewController()
         contentListViewController.tabBarItem = tabBarItem
-        
         let listCoordinator = MainContentCoordinator(rootController: contentListViewController)
         listCoordinator.start()
-        childCoordinators[listCoordinator.identifier] = listCoordinator
-        
+        addChild(coordinator: listCoordinator)
         return contentListViewController
     }
     
@@ -75,6 +73,6 @@ final class TabBarCoordinator: Coordinator {
 extension TabBarCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
-        delegate?.didFinishWithLogOut(identifier)
+        delegate?.didFinishWithLogOut(self)
     }
 }

@@ -14,3 +14,19 @@ protocol Coordinator: AnyObject {
     
     func start()
 }
+
+extension Coordinator {
+    
+    func addChild(coordinator: Coordinator) {
+        childCoordinators[coordinator.identifier] = coordinator
+    }
+    
+    func removeChild(coordinator: Coordinator) {
+        coordinator.removeAllChildCoordinators()
+        childCoordinators.removeValue(forKey: coordinator.identifier)
+    }
+    
+    func removeAllChildCoordinators() {
+        childCoordinators.removeAll()
+    }
+}

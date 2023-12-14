@@ -39,14 +39,14 @@ final class SceneCoordinator: Coordinator {
         let tabBarCoordinator = TabBarCoordinator(window: window)
         tabBarCoordinator.delegate = self
         tabBarCoordinator.start()
-        childCoordinators[tabBarCoordinator.identifier] = tabBarCoordinator
+        addChild(coordinator: tabBarCoordinator)
     }
     
     private func showAuthenticationFlow() {
         let authenticationFlowCoordinator = AuthCoordinator(window: window)
         authenticationFlowCoordinator.delegate = self
         authenticationFlowCoordinator.start()
-        childCoordinators[authenticationFlowCoordinator.identifier] = authenticationFlowCoordinator
+        addChild(coordinator: authenticationFlowCoordinator)
     }
 }
 
@@ -54,8 +54,8 @@ final class SceneCoordinator: Coordinator {
 
 extension SceneCoordinator: AuthCoordinatorFinishDelegate {
     
-    func finishAuthenticationCoordinator(_ identifier: UUID) {
-        childCoordinators.removeValue(forKey: identifier)
+    func finishAuthenticationCoordinator(_ sender: Coordinator) {
+        removeChild(coordinator: sender)
         showTabBarFlow()
     }
 }
@@ -64,8 +64,8 @@ extension SceneCoordinator: AuthCoordinatorFinishDelegate {
 
 extension SceneCoordinator: TabBarCoordinatorFinishDelegate {
     
-    func didFinishWithLogOut(_ identifier: UUID) {
-        childCoordinators.removeValue(forKey: identifier)
+    func didFinishWithLogOut(_ sender: Coordinator) {
+        removeChild(coordinator: sender)
         showAuthenticationFlow()
     }
 }

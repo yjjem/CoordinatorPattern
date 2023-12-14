@@ -9,7 +9,7 @@ import UIKit
 
 protocol AuthCoordinatorFinishDelegate {
     
-    func finishAuthenticationCoordinator(_ identifier: UUID)
+    func finishAuthenticationCoordinator(_ sender: Coordinator)
 }
 
 final class AuthCoordinator: Coordinator {
@@ -69,6 +69,6 @@ extension AuthCoordinator: AuthUserEntryViewControllerDelegate {
     
     func didFinishAuthentication(_ authenticationType: AuthServiceType) {
         authenticator.logIn()
-        delegate?.finishAuthenticationCoordinator(identifier)
+        delegate?.finishAuthenticationCoordinator(self)
     }
 }
