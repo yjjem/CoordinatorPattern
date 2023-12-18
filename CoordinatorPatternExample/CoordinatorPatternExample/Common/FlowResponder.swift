@@ -9,7 +9,7 @@ import Foundation
 
 class FlowResponder: NSObject {
     
-    var nextFlowResponder: FlowResponder?
+    private var nextFlowResponder: FlowResponder?
     
     func sendFlowEvent(_ selector: Selector) {
         if responds(to: selector) {
