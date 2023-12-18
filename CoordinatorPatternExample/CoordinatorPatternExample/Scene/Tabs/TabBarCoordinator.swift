@@ -8,15 +8,15 @@
 import UIKit
 
 protocol TabBarCoordinatorFinishDelegate {
-    func didFinishWithLogOut(_ sender: Coordinator)
+    func didFinishWithLogOut(_ sender: CoordinatorProtocol)
 }
 
-final class TabBarCoordinator: Coordinator {
+final class TabBarCoordinator: CoordinatorProtocol {
     
     // MARK: Property(s)
     
     var delegate: TabBarCoordinatorFinishDelegate?
-    var childCoordinators: [UUID : Coordinator] = [:]
+    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
     let identifier: UUID = UUID()
     
     private let window: UIWindow
@@ -78,7 +78,7 @@ extension TabBarCoordinator: MainProfileViewControllerDelegate {
 
 extension TabBarCoordinator: ListTabNavigationCoordinatorFinishDelegate {
     
-    func didFinish(coordinator: Coordinator) {
+    func didFinish(coordinator: CoordinatorProtocol) {
         removeChild(coordinator: coordinator)
         delegate?.didFinishWithLogOut(self)
     }

@@ -8,15 +8,15 @@
 import UIKit
 
 protocol ListTabNavigationCoordinatorFinishDelegate {
-    func didFinish(coordinator: Coordinator)
+    func didFinish(coordinator: CoordinatorProtocol)
 }
 
-final class ListTabNavigationCoordinator: Coordinator {
+final class ListTabNavigationCoordinator: CoordinatorProtocol {
     
     // MARK: Variable(s)
     
     var delegate: ListTabNavigationCoordinatorFinishDelegate?
-    var childCoordinators: [UUID : Coordinator] = [:]
+    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
     let identifier: UUID = UUID()
     
     private let navigationController: UINavigationController
@@ -67,7 +67,7 @@ extension ListTabNavigationCoordinator: MainContentListItemSelectionDelegate {
 // MARK: MainContentCoordinatorDelegate
 
 extension ListTabNavigationCoordinator: MainContentCoordinatorDelegate {
-    func didFinishWithLogOut(_ coordinator: Coordinator) {
+    func didFinishWithLogOut(_ coordinator: CoordinatorProtocol) {
         removeChild(coordinator: coordinator)
         delegate?.didFinish(coordinator: self)
     }

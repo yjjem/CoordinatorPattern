@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  CoordinatorProtocol.swift
 //  CoordinatorPatternExample
 //
 //  Copyright (c) 2023 Jeremy All rights reserved.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
+protocol CoordinatorProtocol: AnyObject {
     
-    var childCoordinators: [UUID: Coordinator] { get set }
+    var childCoordinators: [UUID: CoordinatorProtocol] { get set }
     var identifier: UUID  { get }
     
     func start()
 }
 
-extension Coordinator {
+extension CoordinatorProtocol {
     
-    func addChild(coordinator: Coordinator) {
+    func addChild(coordinator: CoordinatorProtocol) {
         childCoordinators[coordinator.identifier] = coordinator
     }
     
-    func removeChild(coordinator: Coordinator) {
+    func removeChild(coordinator: CoordinatorProtocol) {
         coordinator.removeAllChildCoordinators()
         childCoordinators.removeValue(forKey: coordinator.identifier)
     }

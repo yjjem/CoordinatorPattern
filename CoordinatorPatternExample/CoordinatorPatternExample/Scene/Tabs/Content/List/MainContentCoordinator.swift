@@ -8,15 +8,15 @@
 import UIKit
 
 protocol MainContentCoordinatorDelegate {
-    func didFinishWithLogOut(_ coordinator: Coordinator)
+    func didFinishWithLogOut(_ coordinator: CoordinatorProtocol)
 }
 
-final class MainContentCoordinator: Coordinator {
+final class MainContentCoordinator: CoordinatorProtocol {
     
     // MARK: Property(s)
     
     var delegate: MainContentCoordinatorDelegate?
-    var childCoordinators: [UUID : Coordinator] = [:]
+    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
     
     let identifier: UUID = UUID()
     

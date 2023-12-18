@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class SceneCoordinator: Coordinator {
+final class SceneCoordinator: CoordinatorProtocol {
     
     // MARK: Property(s)
     
-    var childCoordinators: [UUID: Coordinator] = [:]
+    var childCoordinators: [UUID: CoordinatorProtocol] = [:]
     let identifier: UUID = UUID()
     
     private let window: UIWindow
@@ -54,7 +54,7 @@ final class SceneCoordinator: Coordinator {
 
 extension SceneCoordinator: AuthCoordinatorFinishDelegate {
     
-    func finishAuthenticationCoordinator(_ sender: Coordinator) {
+    func finishAuthenticationCoordinator(_ sender: CoordinatorProtocol) {
         removeChild(coordinator: sender)
         showTabBarFlow()
     }
@@ -64,7 +64,7 @@ extension SceneCoordinator: AuthCoordinatorFinishDelegate {
 
 extension SceneCoordinator: TabBarCoordinatorFinishDelegate {
     
-    func didFinishWithLogOut(_ sender: Coordinator) {
+    func didFinishWithLogOut(_ sender: CoordinatorProtocol) {
         removeChild(coordinator: sender)
         showAuthenticationFlow()
     }

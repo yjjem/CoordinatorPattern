@@ -9,15 +9,15 @@ import UIKit
 
 protocol AuthCoordinatorFinishDelegate {
     
-    func finishAuthenticationCoordinator(_ sender: Coordinator)
+    func finishAuthenticationCoordinator(_ sender: CoordinatorProtocol)
 }
 
-final class AuthCoordinator: Coordinator {
+final class AuthCoordinator: CoordinatorProtocol {
     
     // MARK: Property(s)
     
     var delegate: AuthCoordinatorFinishDelegate?
-    var childCoordinators: [UUID: Coordinator] = [:]
+    var childCoordinators: [UUID: CoordinatorProtocol] = [:]
     let identifier: UUID = UUID()
     
     private let window: UIWindow

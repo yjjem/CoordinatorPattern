@@ -12,7 +12,7 @@
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
 		DF62BEC32AC949C900833DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF62BEC22AC949C900833DE5 /* Assets.xcassets */; };
 		DF62BEC62AC949C900833DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF62BEC42AC949C900833DE5 /* LaunchScreen.storyboard */; };
-		DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BECF2AC94BF400833DE5 /* Coordinator.swift */; };
+		DF62BED02AC94BF400833DE5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */; };
 		DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */; };
 		DF62BEDA2ACAEB9700833DE5 /* SingleLargeTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BED92ACAEB9700833DE5 /* SingleLargeTitleViewController.swift */; };
 		DF62BEDD2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift */; };
@@ -43,7 +43,7 @@
 		DF62BEC22AC949C900833DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF62BEC52AC949C900833DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF62BEC72AC949C900833DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF62BECF2AC94BF400833DE5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		DF62BED92ACAEB9700833DE5 /* SingleLargeTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLargeTitleViewController.swift; sourceTree = "<group>"; };
 		DF62BEDC2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceSelectorViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		DF62BED12AC94D6600833DE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DF62BECF2AC94BF400833DE5 /* Coordinator.swift */,
+				DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */,
 				DF7201902B3056CD00E8ED5D /* FlowResponder.swift */,
 			);
 			path = Common;
@@ -337,7 +337,7 @@
 				DF8A67132AD2CD9900FE15D6 /* AuthServiceType.swift in Sources */,
 				DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */,
 				DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */,
-				DF62BED02AC94BF400833DE5 /* Coordinator.swift in Sources */,
+				DF62BED02AC94BF400833DE5 /* CoordinatorProtocol.swift in Sources */,
 				DF6B7FFE2B2BB22600261AD6 /* TabTypes.swift in Sources */,
 				DF62BEDA2ACAEB9700833DE5 /* SingleLargeTitleViewController.swift in Sources */,
 				DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */,
