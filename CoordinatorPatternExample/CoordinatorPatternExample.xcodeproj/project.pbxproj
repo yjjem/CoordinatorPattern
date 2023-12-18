@@ -18,6 +18,7 @@
 		DF62BEDD2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEDC2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift */; };
 		DF6B7FFC2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B7FFB2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift */; };
 		DF6B7FFE2B2BB22600261AD6 /* TabTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B7FFD2B2BB22600261AD6 /* TabTypes.swift */; };
+		DF7201912B3056CD00E8ED5D /* FlowResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201902B3056CD00E8ED5D /* FlowResponder.swift */; };
 		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */; };
 		DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */; };
@@ -48,6 +49,7 @@
 		DF62BEDC2ACAEF6400833DE5 /* AuthServiceSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceSelectorViewController.swift; sourceTree = "<group>"; };
 		DF6B7FFB2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabNavigationCoordinator.swift; sourceTree = "<group>"; };
 		DF6B7FFD2B2BB22600261AD6 /* TabTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTypes.swift; sourceTree = "<group>"; };
+		DF7201902B3056CD00E8ED5D /* FlowResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowResponder.swift; sourceTree = "<group>"; };
 		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewController.swift; sourceTree = "<group>"; };
 		DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectorView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				DF62BECF2AC94BF400833DE5 /* Coordinator.swift */,
+				DF7201902B3056CD00E8ED5D /* FlowResponder.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7201912B3056CD00E8ED5D /* FlowResponder.swift in Sources */,
 				DF8A67132AD2CD9900FE15D6 /* AuthServiceType.swift in Sources */,
 				DF8A671C2AD3EE5E00FE15D6 /* MainContent.swift in Sources */,
 				DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */,
