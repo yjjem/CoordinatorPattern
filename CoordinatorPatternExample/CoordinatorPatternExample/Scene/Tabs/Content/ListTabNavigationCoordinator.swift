@@ -11,13 +11,11 @@ protocol ListTabNavigationCoordinatorFinishDelegate {
     func didFinish(coordinator: CoordinatorProtocol)
 }
 
-final class ListTabNavigationCoordinator: CoordinatorProtocol {
+final class ListTabNavigationCoordinator: Coordinator {
     
     // MARK: Variable(s)
     
     var delegate: ListTabNavigationCoordinatorFinishDelegate?
-    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
-    let identifier: UUID = UUID()
     
     private let navigationController: UINavigationController
     private let rootController: MainContentListViewController = .init()
@@ -30,7 +28,7 @@ final class ListTabNavigationCoordinator: CoordinatorProtocol {
     
     // MARK: Function(s)
     
-    func start() {
+    override func start() {
         rootController.itemSelectionDelegate = self
         configureListCoordinator()
         configureNavigationController()
@@ -50,7 +48,6 @@ final class ListTabNavigationCoordinator: CoordinatorProtocol {
     
     private func configureListCoordinator() {
         let listCoordinator = MainContentCoordinator(rootController: rootController)
-        listCoordinator.delegate = self
         listCoordinator.start()
         addChild(coordinator: listCoordinator)
     }
@@ -61,14 +58,5 @@ final class ListTabNavigationCoordinator: CoordinatorProtocol {
 extension ListTabNavigationCoordinator: MainContentListItemSelectionDelegate {
     func didSelectItem(_ item: MainContent) {
         showDetailFlow(content: item)
-    }
-}
-
-// MARK: MainContentCoordinatorDelegate
-
-extension ListTabNavigationCoordinator: MainContentCoordinatorDelegate {
-    func didFinishWithLogOut(_ coordinator: CoordinatorProtocol) {
-        removeChild(coordinator: coordinator)
-        delegate?.didFinish(coordinator: self)
     }
 }

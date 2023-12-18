@@ -7,18 +7,9 @@
 
 import UIKit
 
-protocol MainContentCoordinatorDelegate {
-    func didFinishWithLogOut(_ coordinator: CoordinatorProtocol)
-}
-
-final class MainContentCoordinator: CoordinatorProtocol {
+final class MainContentCoordinator: Coordinator {
     
     // MARK: Property(s)
-    
-    var delegate: MainContentCoordinatorDelegate?
-    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
-    
-    let identifier: UUID = UUID()
     
     private let rootController: MainContentListViewController
     private let authenticator: AuthPerformer = AuthPerformer()
@@ -31,7 +22,7 @@ final class MainContentCoordinator: CoordinatorProtocol {
     
     // MARK: Function(s)
     
-    func start() {
+    override func start() {
         rootController.barButtonsDelegate = self
     }
     
@@ -70,7 +61,7 @@ extension MainContentCoordinator: MainProfileViewControllerDelegate {
     func didTapLogOutButton() {
         authenticator.logOut()
         rootController.dismiss(animated: true)
-        delegate?.didFinishWithLogOut(self)
+        sendFlowEvent(#selector(LogOutEvent.didLogOut))
     }
 }
 

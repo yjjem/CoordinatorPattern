@@ -19,6 +19,8 @@
 		DF6B7FFC2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B7FFB2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift */; };
 		DF6B7FFE2B2BB22600261AD6 /* TabTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B7FFD2B2BB22600261AD6 /* TabTypes.swift */; };
 		DF7201912B3056CD00E8ED5D /* FlowResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201902B3056CD00E8ED5D /* FlowResponder.swift */; };
+		DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201922B30575C00E8ED5D /* Coordinator.swift */; };
+		DF7201952B305C4000E8ED5D /* LogOutEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201942B305C4000E8ED5D /* LogOutEvent.swift */; };
 		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */; };
 		DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */; };
@@ -50,6 +52,8 @@
 		DF6B7FFB2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabNavigationCoordinator.swift; sourceTree = "<group>"; };
 		DF6B7FFD2B2BB22600261AD6 /* TabTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTypes.swift; sourceTree = "<group>"; };
 		DF7201902B3056CD00E8ED5D /* FlowResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowResponder.swift; sourceTree = "<group>"; };
+		DF7201922B30575C00E8ED5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DF7201942B305C4000E8ED5D /* LogOutEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutEvent.swift; sourceTree = "<group>"; };
 		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewController.swift; sourceTree = "<group>"; };
 		DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectorView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		DF62BECE2AC94A9800833DE5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DF7201942B305C4000E8ED5D /* LogOutEvent.swift */,
 				DF7D16C52B25A7BC0074B721 /* AuthInspector.swift */,
 				DF62BED32AC94DA300833DE5 /* SceneCoordinator.swift */,
 				DF62BEB92AC949C800833DE5 /* AppDelegate.swift */,
@@ -139,8 +144,9 @@
 		DF62BED12AC94D6600833DE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */,
 				DF7201902B3056CD00E8ED5D /* FlowResponder.swift */,
+				DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */,
+				DF7201922B30575C00E8ED5D /* Coordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				DF7D16C42B2462400074B721 /* MainContentCoordinator.swift in Sources */,
 				DFBEB0172ACC111C00547369 /* MainContentCell.swift in Sources */,
 				DF62BED42AC94DA300833DE5 /* SceneCoordinator.swift in Sources */,
+				DF7201952B305C4000E8ED5D /* LogOutEvent.swift in Sources */,
 				DFC053842ACC4C0F00DF317E /* SceneDelegate.swift in Sources */,
 				DFC0538F2ACD8E3B00DF317E /* MainContentDetailViewController.swift in Sources */,
 				DF6B7FFC2B2B2B1E00261AD6 /* ListTabNavigationCoordinator.swift in Sources */,
@@ -355,6 +362,7 @@
 				DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */,
 				DF5D09172B27C4BC00410D2D /* TabBarCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
+				DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */,
 				DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */,
 				DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */,
 			);

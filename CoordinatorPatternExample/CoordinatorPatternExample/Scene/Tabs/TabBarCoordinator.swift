@@ -11,13 +11,11 @@ protocol TabBarCoordinatorFinishDelegate {
     func didFinishWithLogOut(_ sender: CoordinatorProtocol)
 }
 
-final class TabBarCoordinator: CoordinatorProtocol {
+final class TabBarCoordinator: Coordinator {
     
     // MARK: Property(s)
     
     var delegate: TabBarCoordinatorFinishDelegate?
-    var childCoordinators: [UUID : CoordinatorProtocol] = [:]
-    let identifier: UUID = UUID()
     
     private let window: UIWindow
     private let tabBarController: UITabBarController = .init()
@@ -30,7 +28,7 @@ final class TabBarCoordinator: CoordinatorProtocol {
     
     // MARK: Function(s)
     
-    func start() {
+    override func start() {
         configureTabController()
         window.rootViewController = tabBarController
     }
@@ -51,7 +49,6 @@ final class TabBarCoordinator: CoordinatorProtocol {
         let listTabNavigation = UINavigationController()
         listTabNavigation.tabBarItem = TabTypes.list.tabBarItem
         let listCoordinator = ListTabNavigationCoordinator(navigationController: listTabNavigation)
-        listCoordinator.delegate = self
         listCoordinator.start()
         addChild(coordinator: listCoordinator)
         return listTabNavigation
@@ -70,16 +67,6 @@ final class TabBarCoordinator: CoordinatorProtocol {
 extension TabBarCoordinator: MainProfileViewControllerDelegate {
     
     func didTapLogOutButton() {
-        delegate?.didFinishWithLogOut(self)
-    }
-}
-
-// MARK: ListTabNavigationCoordinatorFinishDelegate
-
-extension TabBarCoordinator: ListTabNavigationCoordinatorFinishDelegate {
-    
-    func didFinish(coordinator: CoordinatorProtocol) {
-        removeChild(coordinator: coordinator)
-        delegate?.didFinishWithLogOut(self)
+        sendFlowEvent(#selector(LogOutEvent.didLogOut))
     }
 }

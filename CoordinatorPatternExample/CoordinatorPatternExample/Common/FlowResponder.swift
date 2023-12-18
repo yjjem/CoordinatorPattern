@@ -11,11 +11,11 @@ class FlowResponder: NSObject {
     
     var nextFlowResponder: FlowResponder?
     
-    func handleFlowEvent(_ selector: Selector) {
+    func sendFlowEvent(_ selector: Selector) {
         if responds(to: selector) {
             perform(selector)
         } else {
-            nextFlowResponder?.handleFlowEvent(selector)
+            nextFlowResponder?.sendFlowEvent(selector)
         }
     }
     

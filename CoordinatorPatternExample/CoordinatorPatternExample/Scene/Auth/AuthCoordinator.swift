@@ -12,13 +12,11 @@ protocol AuthCoordinatorFinishDelegate {
     func finishAuthenticationCoordinator(_ sender: CoordinatorProtocol)
 }
 
-final class AuthCoordinator: CoordinatorProtocol {
+final class AuthCoordinator: Coordinator {
     
     // MARK: Property(s)
     
     var delegate: AuthCoordinatorFinishDelegate?
-    var childCoordinators: [UUID: CoordinatorProtocol] = [:]
-    let identifier: UUID = UUID()
     
     private let window: UIWindow
     private let navigationController: UINavigationController = UINavigationController()
@@ -32,7 +30,7 @@ final class AuthCoordinator: CoordinatorProtocol {
     
     // MARK: Function(s)
     
-    func start() {
+    override func start() {
         window.rootViewController = navigationController
         showAuthServiceSelectorFlow()
     }

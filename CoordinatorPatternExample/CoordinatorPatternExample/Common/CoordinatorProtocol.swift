@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CoordinatorProtocol: AnyObject {
+protocol CoordinatorProtocol: FlowResponder, AnyObject {
     
     var childCoordinators: [UUID: CoordinatorProtocol] { get set }
     var identifier: UUID  { get }
@@ -19,6 +19,7 @@ extension CoordinatorProtocol {
     
     func addChild(coordinator: CoordinatorProtocol) {
         childCoordinators[coordinator.identifier] = coordinator
+        coordinator.setNext(flowResponder: self)
     }
     
     func removeChild(coordinator: CoordinatorProtocol) {
