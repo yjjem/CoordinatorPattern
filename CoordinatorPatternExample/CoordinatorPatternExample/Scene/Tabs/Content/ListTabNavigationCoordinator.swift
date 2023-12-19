@@ -18,7 +18,6 @@ final class ListTabNavigationCoordinator: Coordinator {
     var delegate: ListTabNavigationCoordinatorFinishDelegate?
     
     private let navigationController: UINavigationController
-    private let rootController: MainContentListViewController = .init()
     
     // MARK: Initializer(s)
     
@@ -29,27 +28,24 @@ final class ListTabNavigationCoordinator: Coordinator {
     // MARK: Function(s)
     
     override func start() {
-        rootController.itemSelectionDelegate = self
-        configureListCoordinator()
-        configureNavigationController()
+        showMainFlow()
     }
     
     // MARK: Private Function(s)
+    
+    private func showMainFlow() {
+        let mainListViewController = MainContentListViewController()
+        mainListViewController.itemSelectionDelegate = self
+        let mainListCoordinator = MainContentCoordinator(rootController: mainListViewController)
+        mainListCoordinator.start()
+        addChild(coordinator: mainListCoordinator)
+        navigationController.pushViewController(mainListViewController, animated: true)
+    }
     
     private func showDetailFlow(content: MainContent) {
         let detailViewController = MainContentDetailViewController()
         detailViewController.configureWithContentItem(content: content)
         navigationController.pushViewController(detailViewController, animated: true)
-    }
-    
-    private func configureNavigationController() {
-        navigationController.setViewControllers([rootController], animated: false)
-    }
-    
-    private func configureListCoordinator() {
-        let listCoordinator = MainContentCoordinator(rootController: rootController)
-        listCoordinator.start()
-        addChild(coordinator: listCoordinator)
     }
 }
 
