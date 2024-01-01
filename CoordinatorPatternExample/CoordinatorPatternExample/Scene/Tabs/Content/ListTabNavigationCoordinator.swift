@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ListTabNavigationCoordinatorFinishDelegate {
+protocol ListTabNavigationCoordinatorFinishDelegate: AnyObject {
     func didFinish(coordinator: CoordinatorProtocol)
 }
 
@@ -15,7 +15,7 @@ final class ListTabNavigationCoordinator: Coordinator {
     
     // MARK: Variable(s)
     
-    var delegate: ListTabNavigationCoordinatorFinishDelegate?
+    weak var delegate: ListTabNavigationCoordinatorFinishDelegate?
     
     private let navigationController: UINavigationController
     

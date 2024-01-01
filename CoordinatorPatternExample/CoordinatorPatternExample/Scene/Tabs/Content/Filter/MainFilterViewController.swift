@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainFilterViewControllerDelegate {
+protocol MainFilterViewControllerDelegate: AnyObject {
     func didSelectRange(minNumber: Int, maxNumber: Int)
 }
 
@@ -15,7 +15,7 @@ final class MainFilterViewController: UIViewController {
     
     // MARK: Property(s)
     
-    var delegate: MainFilterViewControllerDelegate?
+    weak var delegate: MainFilterViewControllerDelegate?
     
     private var minimumValue: Int = 1
     private var maximumValue: Int = 1

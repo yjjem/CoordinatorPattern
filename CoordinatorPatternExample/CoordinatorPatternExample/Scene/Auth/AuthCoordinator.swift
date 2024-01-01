@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthCoordinatorFinishDelegate {
+protocol AuthCoordinatorFinishDelegate: AnyObject {
     
     func finishAuthenticationCoordinator(_ sender: CoordinatorProtocol)
 }
@@ -16,7 +16,7 @@ final class AuthCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: AuthCoordinatorFinishDelegate?
+    weak var delegate: AuthCoordinatorFinishDelegate?
     
     private let window: UIWindow
     private let navigationController: UINavigationController = UINavigationController()

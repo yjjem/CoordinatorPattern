@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainProfileViewControllerDelegate {
+protocol MainProfileViewControllerDelegate: AnyObject {
     
     func didTapLogOutButton()
 }
@@ -16,7 +16,7 @@ final class MainProfileViewController: UIViewController {
     
     // MARK: Property(s)
     
-    var delegate: MainProfileViewControllerDelegate?
+    weak var delegate: MainProfileViewControllerDelegate?
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()

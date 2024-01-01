@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol MainContentListItemSelectionDelegate {
+protocol MainContentListItemSelectionDelegate: AnyObject {
     func didSelectItem(_ item: MainContent)
 }
 
-protocol MainContentBarButtonSelectionDelegate {
+protocol MainContentBarButtonSelectionDelegate: AnyObject {
     func didTapFilterButton()
     func didTapProfileButton()
 }
@@ -20,8 +20,8 @@ final class MainContentListViewController: SingleLargeTitleViewController {
     
     // MARK: Property(s)
     
-    var itemSelectionDelegate: MainContentListItemSelectionDelegate?
-    var barButtonsDelegate: MainContentBarButtonSelectionDelegate?
+    weak var itemSelectionDelegate: MainContentListItemSelectionDelegate?
+    weak var barButtonsDelegate: MainContentBarButtonSelectionDelegate?
     
     private let contentStorage: MainContentStorage = .init()
     

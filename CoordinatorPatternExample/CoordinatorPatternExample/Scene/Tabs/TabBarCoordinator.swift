@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TabBarCoordinatorFinishDelegate {
+protocol TabBarCoordinatorFinishDelegate: AnyObject {
     func didFinishWithLogOut(_ sender: CoordinatorProtocol)
 }
 
@@ -15,7 +15,7 @@ final class TabBarCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: TabBarCoordinatorFinishDelegate?
+    weak var delegate: TabBarCoordinatorFinishDelegate?
     
     private let window: UIWindow
     private let tabBarController: UITabBarController = .init()

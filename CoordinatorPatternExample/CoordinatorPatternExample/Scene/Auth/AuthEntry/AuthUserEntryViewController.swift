@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthUserEntryViewControllerDelegate {
+protocol AuthUserEntryViewControllerDelegate: AnyObject {
     
     func didFinishAuthentication(_ authenticationType: AuthServiceType)
 }
@@ -16,7 +16,7 @@ final class AuthUserEntryViewController: SingleLargeTitleViewController {
     
     // MARK: Property(s)
     
-    var delegate: AuthUserEntryViewControllerDelegate?
+    weak var delegate: AuthUserEntryViewControllerDelegate?
     
     private var authenticationType: AuthServiceType?
     
