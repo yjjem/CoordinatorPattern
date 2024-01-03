@@ -7,7 +7,7 @@
     - Coordiantor 종료하기
 3. [고민한 점](#고민한-점)
     - [Deep 이벤트 처리 문제](#Deep-이벤트-처리-문제)
-    - [FlowResponder](#FlowResponder)
+    - [FlowResponder](#Flow-Responder)
     - [UIResponder를 활용하지 않은 이유](#UIResponder를-활용하지-않은-이유)
   
 # 브랜치 참고
