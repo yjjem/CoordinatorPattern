@@ -12,6 +12,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: Property(s)
     
     var window: UIWindow?
+    var sceneCoordinator: SceneCoordinator?
     
     // MARK: Function(s)
     
@@ -23,9 +24,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        self.window = window
-
         let sceneCoordinator = SceneCoordinator(window: window)
         sceneCoordinator.start()
+        
+        self.window = window
+        self.sceneCoordinator = sceneCoordinator
     }
 }

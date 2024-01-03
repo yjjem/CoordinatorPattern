@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainContentCoordinatorDelegate {
+protocol MainContentCoordinatorDelegate: AnyObject {
     func didFinishWithLogOut(_ identifier: UUID)
 }
 
@@ -15,7 +15,7 @@ final class MainContentCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: MainContentCoordinatorDelegate?
+    weak var delegate: MainContentCoordinatorDelegate?
     var childCoordinators: [UUID : Coordinator] = [:]
     
     let identifier: UUID = UUID()

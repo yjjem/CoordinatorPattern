@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthCoordinatorFinishDelegate {
+protocol AuthCoordinatorFinishDelegate: AnyObject {
     
     func finishAuthenticationCoordinator(_ identifier: UUID)
 }
@@ -16,7 +16,7 @@ final class AuthCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: AuthCoordinatorFinishDelegate?
+    weak var delegate: AuthCoordinatorFinishDelegate?
     var childCoordinators: [UUID: Coordinator] = [:]
     
     let identifier: UUID = UUID()
@@ -36,7 +36,7 @@ final class AuthCoordinator: Coordinator {
         let authenticationViewController = AuthServiceSelectorViewController()
         authenticationViewController.delegate = self
         authenticationViewController.configureName(with: "Authentication")
-        navigationController.setViewControllers([authenticationViewController], animated: true)
+        navigationController.pushViewController(authenticationViewController, animated: true)
     }
 }
 

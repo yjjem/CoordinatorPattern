@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-protocol MainCoordinatorFinishDelegate {
+protocol MainCoordinatorFinishDelegate: AnyObject {
     func finishMainCoordinator(_ identifier: UUID)
 }
 
@@ -16,7 +16,7 @@ final class MainCoordinator: Coordinator {
     
     // MARK: Property(s)
     
-    var delegate: MainCoordinatorFinishDelegate?
+    weak var delegate: MainCoordinatorFinishDelegate?
     var childCoordinators: [UUID: Coordinator] = [:]
     
     let identifier: UUID = UUID()
@@ -48,6 +48,7 @@ final class MainCoordinator: Coordinator {
         )
         mainContentCoordinator.start()
         mainContentCoordinator.delegate = self
+        childCoordinators[mainContentCoordinator.identifier] = mainContentCoordinator
     }
     
     private func showDetailFlow(of content: MainContent) {
@@ -71,7 +72,7 @@ extension MainCoordinator: MainContentListItemSelectionDelegate {
 extension MainCoordinator: MainContentCoordinatorDelegate {
     
     func didFinishWithLogOut(_ identifier: UUID) {
-        childCoordinators.removeAll()
-        delegate?.finishMainCoordinator(identifier)
+        childCoordinators.removeValue(forKey: identifier)
+        delegate?.finishMainCoordinator(self.identifier)
     }
 }

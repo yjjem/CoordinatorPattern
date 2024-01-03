@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol MainProfileViewControllerDelegate {
+protocol MainProfileViewControllerDelegate: AnyObject {
     
     func didTapLogOutButton()
 }
 
 final class MainProfileViewController: UIViewController {
     
-    var delegate: MainProfileViewControllerDelegate?
+    weak var delegate: MainProfileViewControllerDelegate?
     
     // MARK: Property(s)
     
