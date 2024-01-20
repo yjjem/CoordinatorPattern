@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF2B01202B5C3E1500214C8D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011F2B5C3E1500214C8D /* Router.swift */; };
 		DF5D09172B27C4BC00410D2D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D09162B27C4BC00410D2D /* TabBarCoordinator.swift */; };
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
@@ -21,6 +22,7 @@
 		DF7201912B3056CD00E8ED5D /* FlowResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201902B3056CD00E8ED5D /* FlowResponder.swift */; };
 		DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201922B30575C00E8ED5D /* Coordinator.swift */; };
 		DF7201952B305C4000E8ED5D /* LogOutEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7201942B305C4000E8ED5D /* LogOutEvent.swift */; };
+		DF78FB6F2B5908F80057F4B2 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78FB6E2B5908F80057F4B2 /* RouterProtocol.swift */; };
 		DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */; };
 		DF7D16BE2B22025B0074B721 /* MainFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */; };
 		DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF2B011F2B5C3E1500214C8D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DF5D09162B27C4BC00410D2D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPatternExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF62BEB92AC949C800833DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		DF7201902B3056CD00E8ED5D /* FlowResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowResponder.swift; sourceTree = "<group>"; };
 		DF7201922B30575C00E8ED5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DF7201942B305C4000E8ED5D /* LogOutEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutEvent.swift; sourceTree = "<group>"; };
+		DF78FB6E2B5908F80057F4B2 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		DF7D16BA2B21C4720074B721 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		DF7D16BD2B22025B0074B721 /* MainFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterViewController.swift; sourceTree = "<group>"; };
 		DF7D16C12B22E3F90074B721 /* NumberSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelectorView.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				DF7201902B3056CD00E8ED5D /* FlowResponder.swift */,
 				DF62BECF2AC94BF400833DE5 /* CoordinatorProtocol.swift */,
 				DF7201922B30575C00E8ED5D /* Coordinator.swift */,
+				DF78FB6E2B5908F80057F4B2 /* RouterProtocol.swift */,
+				DF2B011F2B5C3E1500214C8D /* Router.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				DF62BED02AC94BF400833DE5 /* CoordinatorProtocol.swift in Sources */,
 				DF6B7FFE2B2BB22600261AD6 /* TabTypes.swift in Sources */,
 				DF62BEDA2ACAEB9700833DE5 /* SingleLargeTitleViewController.swift in Sources */,
+				DF2B01202B5C3E1500214C8D /* Router.swift in Sources */,
 				DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */,
 				DF7D16C62B25A7BC0074B721 /* AuthInspector.swift in Sources */,
 				DF7D16C82B25AA9E0074B721 /* AuthPerformer.swift in Sources */,
@@ -364,6 +371,7 @@
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 				DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */,
 				DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */,
+				DF78FB6F2B5908F80057F4B2 /* RouterProtocol.swift in Sources */,
 				DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
