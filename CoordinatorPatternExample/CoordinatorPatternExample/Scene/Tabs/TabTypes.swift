@@ -10,6 +10,7 @@ import UIKit
 enum TabTypes: String {
     case list
     case profile
+    case browse
     
     var tabBarItem: UITabBarItem {
         return UITabBarItem(
@@ -23,6 +24,7 @@ enum TabTypes: String {
         switch self {
         case .list: return "list.bullet.circle"
         case .profile: return "person.crop.circle"
+        case .browse: return "sparkles"
         }
     }
     
