@@ -38,20 +38,30 @@ final class TabBarCoordinator: Coordinator {
     private func configureTabController() {
         let listTab = makeListTab()
         let profileTab = makeProfileTab()
+        let browseTab = makeBrowseTab()
         let appearance = UITabBarAppearance()
         appearance.configureWithDefaultBackground()
         tabBarController.tabBar.standardAppearance = appearance
         tabBarController.tabBar.scrollEdgeAppearance = appearance
-        tabBarController.viewControllers = [listTab, profileTab]
+        tabBarController.viewControllers = [listTab, browseTab, profileTab]
     }
     
     private func makeListTab() -> UINavigationController {
         let listTabNavigation = UINavigationController()
-        listTabNavigation.tabBarItem = TabTypes.list.tabBarItem
+        listTabNavigation.tabBarItem = TabTypes.numbers.tabBarItem
         let listCoordinator = ListTabNavigationCoordinator(navigationController: listTabNavigation)
         listCoordinator.start()
         addChild(coordinator: listCoordinator)
         return listTabNavigation
+    }
+
+    private func makeBrowseTab() -> UINavigationController {
+        let browseTabNavigation = UINavigationController()
+        browseTabNavigation.tabBarItem = TabTypes.browse.tabBarItem
+        let browseCoordinator = BrowseCategoryTabCoordinator(navigationController: browseTabNavigation)
+        browseCoordinator.start()
+        addChild(coordinator: browseCoordinator)
+        return browseTabNavigation
     }
     
     private func makeProfileTab() -> MainProfileViewController {
