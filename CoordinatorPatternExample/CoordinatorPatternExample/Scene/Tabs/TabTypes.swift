@@ -8,7 +8,7 @@
 import UIKit
 
 enum TabTypes: String {
-    case list
+    case numbers
     case profile
     case browse
     
@@ -22,8 +22,8 @@ enum TabTypes: String {
     
     private var defaultIconName: String {
         switch self {
-        case .list: return "list.bullet.circle"
-        case .profile: return "person.crop.circle"
+        case .numbers: return "123.rectangle"
+        case .profile: return "person"
         case .browse: return "sparkles"
         }
     }
@@ -37,6 +37,6 @@ enum TabTypes: String {
     }
     
     private var selectedIcon: UIImage? {
-        return UIImage(systemName: selectedIconName)
+        return UIImage(systemName: selectedIconName) ?? defaultIcon
     }
 }
