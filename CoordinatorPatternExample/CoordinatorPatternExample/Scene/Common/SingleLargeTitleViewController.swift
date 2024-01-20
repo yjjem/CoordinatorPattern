@@ -18,6 +18,7 @@ class SingleLargeTitleViewController: UIViewController {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
         return label
     }()
