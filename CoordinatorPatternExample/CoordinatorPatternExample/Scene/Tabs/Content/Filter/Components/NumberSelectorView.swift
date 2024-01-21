@@ -29,15 +29,19 @@ final class NumberSelectorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(name: String, defaultValue: Int = 0) {
+    convenience init(name: String) {
         self.init(frame: .zero)
         setTitle(name)
         configureHierarchy()
         additionalSettings()
-        numberPicker.selectRow(defaultValue - 1, inComponent: 0, animated: false)
     }
     
     // MARK: Function(s)
+    
+    func configure(defaultValue: Int) {
+        numberPicker.selectRow(defaultValue - 1, inComponent: 0, animated: false)
+        didSelectNumber?(defaultValue)
+    }
     
     func markAsInvalidSelection() {
         numberPicker.layer.borderColor = UIColor.systemRed.cgColor

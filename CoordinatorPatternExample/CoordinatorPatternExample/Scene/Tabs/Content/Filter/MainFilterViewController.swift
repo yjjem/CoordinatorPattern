@@ -18,19 +18,12 @@ final class MainFilterViewController: UIViewController {
     weak var delegate: MainFilterViewControllerDelegate?
     
     private var minimumValue: Int = 1
-    private var maximumValue: Int = 1
+    private var maximumValue: Int = 80
     
     private let titleLabel: UILabel = UILabel()
+    private let selectorStack: UIStackView = UIStackView()
     private let minSelector: NumberSelectorView = NumberSelectorView(name: "min")
-    private let maxSelector: NumberSelectorView = NumberSelectorView(name: "max", defaultValue: 80)
-    private let selectorStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .equalCentering
-        stack.spacing = 10
-        return stack
-    }()
+    private let maxSelector: NumberSelectorView = NumberSelectorView(name: "max")
     
     private let confirmButton: UIButton = UIButton()
     
@@ -115,6 +108,10 @@ final class MainFilterViewController: UIViewController {
         ])
         
         view.addSubview(selectorStack)
+        selectorStack.axis = .horizontal
+        selectorStack.alignment = .center
+        selectorStack.distribution = .equalCentering
+        selectorStack.spacing = 10
         selectorStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             selectorStack.widthAnchor.constraint(equalToConstant: 200),
@@ -123,11 +120,13 @@ final class MainFilterViewController: UIViewController {
             selectorStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
         ])
         
+        minSelector.configure(defaultValue: minimumValue)
         selectorStack.addArrangedSubview(minSelector)
         NSLayoutConstraint.activate([
             minSelector.widthAnchor.constraint(equalToConstant: 80),
             minSelector.heightAnchor.constraint(equalToConstant: 100)
         ])
+        maxSelector.configure(defaultValue: maximumValue)
         selectorStack.addArrangedSubview(maxSelector)
         NSLayoutConstraint.activate([
             maxSelector.widthAnchor.constraint(equalToConstant: 80),
