@@ -6,24 +6,19 @@
 
 
 import UIKit
+import RxFlow
+import RxRelay
+import RxSwift
+import RxCocoa
 
-protocol MainContentListItemSelectionDelegate: AnyObject {
-    func didSelectItem(_ item: MainContent)
-}
-
-protocol MainContentBarButtonSelectionDelegate: AnyObject {
-    func didTapFilterButton()
-    func didTapProfileButton()
-}
-
-final class MainContentListViewController: SingleLargeTitleViewController {
+final class MainContentListViewController: SingleLargeTitleViewController, Stepper {
     
     // MARK: Property(s)
     
-    weak var itemSelectionDelegate: MainContentListItemSelectionDelegate?
-    weak var barButtonsDelegate: MainContentBarButtonSelectionDelegate?
+    let steps: PublishRelay<Step> = .init()
     
     private let contentStorage: MainContentStorage = .init()
+    private let disposeBag: DisposeBag = .init()
     
     private let imageContentCollectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -65,37 +60,45 @@ final class MainContentListViewController: SingleLargeTitleViewController {
             image: profileIcon,
             style: .plain,
             target: self,
-            action: #selector(didTapShowProfileButton)
+            action: nil
         )
         let filterBarButtonItem = UIBarButtonItem(
             image: filterIcon,
             style: .plain,
             target: self,
-            action: #selector(didTapFilterButton)
+            action: nil
         )
+        
+        showProfileButton.rx.tap
+            .take(until: rx.deallocated)
+            .map { FlowSteps.tapMainProfile }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
+        
+        filterBarButtonItem.rx.tap
+            .take(until: rx.deallocated)
+            .map { FlowSteps.tapNumbersFilter }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
         
         let barButtonItems: [UIBarButtonItem] = [showProfileButton, filterBarButtonItem]
         navigationItem.rightBarButtonItems = barButtonItems
         navigationItem.title = "Main"
     }
     
-    @objc private func didTapFilterButton() {
-        barButtonsDelegate?.didTapFilterButton()
-    }
-    
-    @objc private func didTapShowProfileButton() {
-        barButtonsDelegate?.didTapProfileButton()
-    }
-    
     private func configureCollectionView() {
         let collectionViewLayout = makeCollectionViewLayout()
         imageContentCollectionView.dataSource = self
-        imageContentCollectionView.delegate = self
         imageContentCollectionView.setCollectionViewLayout(collectionViewLayout, animated: true)
         imageContentCollectionView.register(
             MainContentCell.self,
             forCellWithReuseIdentifier: "cell"
         )
+        imageContentCollectionView.rx.itemSelected
+            .map { self.contentStorage.contentList[$0.item] }
+            .map { FlowSteps.numberSelected(number: $0.number) }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
     }
     
     private func configureHierarchy() {
@@ -160,16 +163,5 @@ extension MainContentListViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         return contentStorage.contentList.count
-    }
-}
-
-// MARK: UICollectionViewDelegate
-
-extension MainContentListViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItemIndex = indexPath.item
-        let selectedItem = contentStorage.contentList[selectedItemIndex]
-        itemSelectionDelegate?.didSelectItem(selectedItem)
     }
 }
