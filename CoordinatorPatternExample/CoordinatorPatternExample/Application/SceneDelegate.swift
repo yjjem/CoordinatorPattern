@@ -6,12 +6,17 @@
 
 
 import UIKit
+import RxFlow
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: Property(s)
     
     var window: UIWindow?
+    private let coordinator: FlowCoordinator = FlowCoordinator()
+    private lazy var sceneFlow = {
+        return SceneFlow()
+    }()
     
     // MARK: Function(s)
     
@@ -23,7 +28,16 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.makeKeyAndVisible()
         self.window = window
+
+        Flows.use(sceneFlow, when: .created) { [weak window] flowRoot in
+            window?.rootViewController = flowRoot
+            window?.makeKeyAndVisible()
+        }
+    
+        coordinator.coordinate(
+            flow: sceneFlow,
+            with: OneStepper(withSingleStep: FlowSteps.auth)
+        )
     }
 }
