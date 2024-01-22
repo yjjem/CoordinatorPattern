@@ -18,7 +18,14 @@ final class TabBarFlow: Flow {
         return FlowSteps.tabBar
     }
     
-    private lazy var tabBarController: UITabBarController = UITabBarController()
+    private lazy var tabBarController: UITabBarController = {
+        let tabBarController = UITabBarController()
+        let defaultAppearance = UITabBarAppearance()
+        defaultAppearance.configureWithDefaultBackground()
+        tabBarController.tabBar.standardAppearance = defaultAppearance
+        tabBarController.tabBar.scrollEdgeAppearance = defaultAppearance
+        return tabBarController
+    }()
     
     func navigate(to step: Step) -> FlowContributors {
         guard let step = step as? FlowSteps else { return .none }
