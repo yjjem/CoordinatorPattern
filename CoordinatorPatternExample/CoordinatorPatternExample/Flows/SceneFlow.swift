@@ -48,7 +48,7 @@ final class SceneFlow: Flow {
             flowRoot.modalPresentationStyle = .fullScreen
             flowRoot.modalTransitionStyle = .crossDissolve
             DispatchQueue.main.async {
-                rootViewController?.present(flowRoot, animated: true)
+                rootViewController?.present(flowRoot, animated: false)
             }
         }
         return .one(flowContributor: .contribute(

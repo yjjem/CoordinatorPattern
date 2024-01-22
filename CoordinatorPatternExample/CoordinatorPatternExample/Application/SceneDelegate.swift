@@ -30,7 +30,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
-        Flows.use(sceneFlow, when: .created) { [weak window] flowRoot in
+        Flows.use(sceneFlow, when: .ready) { [weak window] flowRoot in
             window?.rootViewController = flowRoot
             window?.makeKeyAndVisible()
         }
