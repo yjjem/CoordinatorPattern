@@ -6,19 +6,20 @@
     
 
 import UIKit
+import RxRelay
+import RxFlow
+import RxCocoa
+import RxSwift
 
-protocol AuthUserEntryViewControllerDelegate: AnyObject {
-    
-    func didFinishAuthentication(_ authenticationType: AuthServiceType)
-}
-
-final class AuthUserEntryViewController: SingleLargeTitleViewController {
+final class AuthUserEntryViewController: SingleLargeTitleViewController, Stepper {
     
     // MARK: Property(s)
     
-    weak var delegate: AuthUserEntryViewControllerDelegate?
+    let steps: PublishRelay<Step> = .init()
     
     private var authenticationType: AuthServiceType?
+    
+    private let disposeBag: DisposeBag = .init()
     
     private let finishButton: UIButton = {
         let button = UIButton(type: .system)
@@ -38,16 +39,6 @@ final class AuthUserEntryViewController: SingleLargeTitleViewController {
         configureHierarchy()
     }
     
-    // MARK: Runtime Function(s)
-    
-    @objc func didTapFinishButton() {
-        guard let authenticationType else { return }
-        finishButton.isEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
-            self.delegate?.didFinishAuthentication(authenticationType)
-        }
-    }
-    
     // MARK: Function(s)
     
     func configureWith(_ authenticationType: AuthServiceType) {
@@ -59,7 +50,11 @@ final class AuthUserEntryViewController: SingleLargeTitleViewController {
     // MARK: Private Function(s)
     
     private func configureButtonAction() {
-        finishButton.addTarget(self, action: #selector(didTapFinishButton), for: .touchUpInside)
+        finishButton.rx.tap
+            .take(until: rx.deallocated)
+            .map { FlowSteps.finishAuth }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
     }
     
     private func configureHierarchy() {
