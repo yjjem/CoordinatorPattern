@@ -6,16 +6,18 @@
 
 
 import UIKit
+import RxFlow
+import RxCocoa
+import RxRelay
+import RxSwift
 
-protocol AuthServiceSelectorViewControllerDelegate: AnyObject {
-    func startAuthentication(_ authService: AuthServiceType)
-}
-
-final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
+final class AuthServiceSelectorViewController: SingleLargeTitleViewController, Stepper {
     
     // MARK: Property(s)
     
-    weak var delegate: AuthServiceSelectorViewControllerDelegate?
+    let steps: PublishRelay<Step> = .init()
+    
+    private let disposeBag: DisposeBag = .init()
     
     private let authenticationButtonsStack: UIStackView = {
         let stack = UIStackView()
@@ -57,37 +59,26 @@ final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
         configureButtonActions()
     }
     
-    // MARK: Runtime Function(s)
-    
-    @objc private func didTapGreenAuthenticationButton() {
-        delegate?.startAuthentication(.naver)
-    }
-    
-    @objc private func didTapYellowAuthenticationButton() {
-        delegate?.startAuthentication(.kakao)
-    }
-    
-    @objc private func didTapGrayAuthenticationButton() {
-        delegate?.startAuthentication(.google)
-    }
-    
     // MARK: Private Function(s)
     
     private func configureButtonActions() {
-        greenAuthenticationButton.addTarget(
-            self, action: #selector(didTapGreenAuthenticationButton),
-            for: .touchUpInside
-        )
+        greenAuthenticationButton.rx.tap
+            .take(until: rx.deallocating)
+            .map { FlowSteps.enterAuth(type: .naver) }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
         
-        yellowAuthenticationButton.addTarget(
-            self, action: #selector(didTapYellowAuthenticationButton),
-            for: .touchUpInside
-        )
+        yellowAuthenticationButton.rx.tap
+            .take(until: rx.deallocating)
+            .map { FlowSteps.enterAuth(type: .kakao) }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
         
-        grayAuthenticationButton.addTarget(
-            self, action: #selector(didTapGrayAuthenticationButton),
-            for: .touchUpInside
-        )
+        grayAuthenticationButton.rx.tap
+            .take(until: rx.deallocating)
+            .map { FlowSteps.enterAuth(type: .google) }
+            .bind(to: steps)
+            .disposed(by: disposeBag)
     }
     
     private func configureViewStyle() {
@@ -111,7 +102,6 @@ final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
     }
     
     private func configureHierarchy() {
-        
         authenticationButtonsStack.addArrangedSubview(greenAuthenticationButton)
         authenticationButtonsStack.addArrangedSubview(yellowAuthenticationButton)
         authenticationButtonsStack.addArrangedSubview(grayAuthenticationButton)
@@ -121,11 +111,8 @@ final class AuthServiceSelectorViewController: SingleLargeTitleViewController {
         
         NSLayoutConstraint.activate([
             authenticationButtonsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            authenticationButtonsStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             authenticationButtonsStack.widthAnchor.constraint(equalToConstant: 200),
-            authenticationButtonsStack.topAnchor.constraint(
-                equalTo: nameLabelBottomAnchor,
-                constant: 50
-            )
         ])
     }
 }
