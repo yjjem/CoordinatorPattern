@@ -15,6 +15,7 @@
 		DF2B01202B5C3E1500214C8D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011F2B5C3E1500214C8D /* Router.swift */; };
 		DF2B01272B5E41BC00214C8D /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DF2B01262B5E41BC00214C8D /* RxFlow */; };
 		DF2B012A2B5E41F300214C8D /* FlowSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B01292B5E41F300214C8D /* FlowSteps.swift */; };
+		DF2B012C2B5E423200214C8D /* SceneFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B012B2B5E423200214C8D /* SceneFlow.swift */; };
 		DF2B012E2B5E4FD700214C8D /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B012D2B5E4FD700214C8D /* AuthFlow.swift */; };
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
@@ -51,6 +52,7 @@
 		DF2B011D2B5C17FC00214C8D /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		DF2B011F2B5C3E1500214C8D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DF2B01292B5E41F300214C8D /* FlowSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSteps.swift; sourceTree = "<group>"; };
+		DF2B012B2B5E423200214C8D /* SceneFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFlow.swift; sourceTree = "<group>"; };
 		DF2B012D2B5E4FD700214C8D /* AuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
 		DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPatternExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF62BEB92AC949C800833DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				DF2B01292B5E41F300214C8D /* FlowSteps.swift */,
+				DF2B012B2B5E423200214C8D /* SceneFlow.swift */,
 				DF2B012D2B5E4FD700214C8D /* AuthFlow.swift */,
 			);
 			path = Flows;
@@ -418,6 +421,7 @@
 				DF2B011A2B5C168100214C8D /* DetailViewController.swift in Sources */,
 				DFBEB0152ACC022200547369 /* AuthUserEntryViewController.swift in Sources */,
 				DF8A67192AD3E72E00FE15D6 /* MainContentStorage.swift in Sources */,
+				DF2B012C2B5E423200214C8D /* SceneFlow.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 				DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */,
 				DF2B012A2B5E41F300214C8D /* FlowSteps.swift in Sources */,
