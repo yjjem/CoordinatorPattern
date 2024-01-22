@@ -14,6 +14,7 @@
 		DF2B011C2B5C17DD00214C8D /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011B2B5C17DD00214C8D /* ListCoordinator.swift */; };
 		DF2B011E2B5C17FC00214C8D /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011D2B5C17FC00214C8D /* DetailCoordinator.swift */; };
 		DF2B01202B5C3E1500214C8D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011F2B5C3E1500214C8D /* Router.swift */; };
+		DF2B01272B5E41BC00214C8D /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DF2B01262B5E41BC00214C8D /* RxFlow */; };
 		DF5D09172B27C4BC00410D2D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D09162B27C4BC00410D2D /* TabBarCoordinator.swift */; };
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
@@ -91,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2B01272B5E41BC00214C8D /* RxFlow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +335,9 @@
 			dependencies = (
 			);
 			name = CoordinatorPatternExample;
+			packageProductDependencies = (
+				DF2B01262B5E41BC00214C8D /* RxFlow */,
+			);
 			productName = CoordinatorPatternExample;
 			productReference = DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +366,9 @@
 				Base,
 			);
 			mainGroup = DF62BEAD2AC949C800833DE5;
+			packageReferences = (
+				DF2B01252B5E41BC00214C8D /* XCRemoteSwiftPackageReference "RxFlow" */,
+			);
 			productRefGroup = DF62BEB72AC949C800833DE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -633,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF2B01252B5E41BC00214C8D /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF2B01262B5E41BC00214C8D /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF2B01252B5E41BC00214C8D /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF62BEAE2AC949C800833DE5 /* Project object */;
 }
