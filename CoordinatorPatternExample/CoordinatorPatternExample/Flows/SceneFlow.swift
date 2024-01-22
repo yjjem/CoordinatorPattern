@@ -32,7 +32,9 @@ final class SceneFlow: Flow {
         case .auth:
             return showAuthFlow()
         case .tabBar:
-            return .none
+            return showTabBarFlow()
+        case .finishAuth:
+            return dismissAuth()
         default:
             return .none
         }
@@ -42,13 +44,36 @@ final class SceneFlow: Flow {
     
     private func showAuthFlow() -> FlowContributors {
         let authFlow = AuthFlow()
-        Flows.use(authFlow, when: .created) { [weak rootViewController] flowRoot in
-            rootViewController?.present(flowRoot, animated: false)
+        Flows.use(authFlow, when: .ready) { [weak rootViewController] flowRoot in
+            flowRoot.modalPresentationStyle = .fullScreen
+            flowRoot.modalTransitionStyle = .crossDissolve
+            DispatchQueue.main.async {
+                rootViewController?.present(flowRoot, animated: true)
+            }
         }
         return .one(flowContributor: .contribute(
             withNextPresentable: authFlow,
-            withNextStepper: OneStepper(withSingleStep: FlowSteps.selectAuthService))
+            withNextStepper: OneStepper(withSingleStep: authFlow.initialStep))
         )
     }
     
+    private func showTabBarFlow() -> FlowContributors {
+        let tabBarFlow = TabBarFlow()
+        Flows.use(tabBarFlow, when: .ready) { flowRoot in
+            flowRoot.modalPresentationStyle = .fullScreen
+            flowRoot.modalTransitionStyle = .crossDissolve
+            self.rootViewController.present(flowRoot, animated: true)
+        }
+        return .one(flowContributor: .contribute(
+            withNextPresentable: tabBarFlow,
+            withNextStepper: OneStepper(withSingleStep: tabBarFlow.initialStep))
+        )
+    }
+    
+    private func dismissAuth() -> FlowContributors {
+        if let auth = rootViewController.presentedViewController {
+            auth.dismiss(animated: true)
+        }
+        return .one(flowContributor: .forwardToCurrentFlow(withStep: FlowSteps.tabBar))
+    }
 }
