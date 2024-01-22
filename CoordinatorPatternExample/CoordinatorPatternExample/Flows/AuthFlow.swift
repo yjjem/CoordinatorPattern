@@ -16,6 +16,10 @@ final class AuthFlow: Flow {
         return navigationController
     }
     
+    var initialStep: Step {
+        return FlowSteps.selectAuthService
+    }
+    
     private let navigationController: UINavigationController = {
         let navigation = UINavigationController()
         navigation.modalPresentationStyle = .fullScreen
@@ -33,7 +37,7 @@ final class AuthFlow: Flow {
         case .enterAuth(let type):
             return showAuthEntry(serviceType: type)
         case .finishAuth:
-            return .end(forwardToParentFlowWithStep: FlowSteps.tabBar)
+            return .end(forwardToParentFlowWithStep: FlowSteps.finishAuth)
         default:
             return .none
         }
