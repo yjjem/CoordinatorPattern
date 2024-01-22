@@ -15,6 +15,7 @@
 		DF2B011E2B5C17FC00214C8D /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011D2B5C17FC00214C8D /* DetailCoordinator.swift */; };
 		DF2B01202B5C3E1500214C8D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B011F2B5C3E1500214C8D /* Router.swift */; };
 		DF2B01272B5E41BC00214C8D /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = DF2B01262B5E41BC00214C8D /* RxFlow */; };
+		DF2B012A2B5E41F300214C8D /* FlowSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2B01292B5E41F300214C8D /* FlowSteps.swift */; };
 		DF5D09172B27C4BC00410D2D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5D09162B27C4BC00410D2D /* TabBarCoordinator.swift */; };
 		DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEB92AC949C800833DE5 /* AppDelegate.swift */; };
 		DF62BEBE2AC949C800833DE5 /* MainContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62BEBD2AC949C800833DE5 /* MainContentListViewController.swift */; };
@@ -54,6 +55,7 @@
 		DF2B011B2B5C17DD00214C8D /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		DF2B011D2B5C17FC00214C8D /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		DF2B011F2B5C3E1500214C8D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DF2B01292B5E41F300214C8D /* FlowSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSteps.swift; sourceTree = "<group>"; };
 		DF5D09162B27C4BC00410D2D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		DF62BEB62AC949C800833DE5 /* CoordinatorPatternExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPatternExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF62BEB92AC949C800833DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		DF2B01282B5E41E900214C8D /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				DF2B01292B5E41F300214C8D /* FlowSteps.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		DF5D09152B27438600410D2D /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		DF62BEB82AC949C800833DE5 /* CoordinatorPatternExample */ = {
 			isa = PBXGroup;
 			children = (
+				DF2B01282B5E41E900214C8D /* Flows */,
 				DF62BED12AC94D6600833DE5 /* Common */,
 				DF62BECE2AC94A9800833DE5 /* Application */,
 				DF62BED22AC94D7200833DE5 /* Scene */,
@@ -426,6 +437,7 @@
 				DF2B01122B5BDD4200214C8D /* BrowseCategoryTabCoordinator.swift in Sources */,
 				DF62BEBA2AC949C800833DE5 /* AppDelegate.swift in Sources */,
 				DF7201932B30575C00E8ED5D /* Coordinator.swift in Sources */,
+				DF2B012A2B5E41F300214C8D /* FlowSteps.swift in Sources */,
 				DF7D16C22B22E3F90074B721 /* NumberSelectorView.swift in Sources */,
 				DF78FB6F2B5908F80057F4B2 /* RouterProtocol.swift in Sources */,
 				DF7D16BB2B21C4720074B721 /* MainProfileViewController.swift in Sources */,
