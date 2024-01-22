@@ -17,4 +17,7 @@ enum FlowSteps: Step {
     
     // MARK: TabBar
     case tabBar
+    case tabMainProfile
+    case tapNumbersFilter
+    case numberSelected(number: Int)
 }

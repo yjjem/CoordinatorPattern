@@ -71,7 +71,7 @@ final class MainContentListViewController: SingleLargeTitleViewController, Stepp
         
         showProfileButton.rx.tap
             .take(until: rx.deallocated)
-            .map { FlowSteps.tapMainProfile }
+            .map { FlowSteps.tabMainProfile }
             .bind(to: steps)
             .disposed(by: disposeBag)
         
