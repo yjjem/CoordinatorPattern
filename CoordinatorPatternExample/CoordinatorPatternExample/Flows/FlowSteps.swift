@@ -8,5 +8,13 @@
 import RxFlow
 
 enum FlowSteps: Step {
+    
+    // MARK: Auth
     case auth
+    case selectAuthService
+    case enterAuth(type: AuthServiceType)
+    case finishAuth
+    
+    // MARK: TabBar
+    case tabBar
 }
